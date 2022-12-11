@@ -1,3 +1,11 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: start;
+}
+
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -67,4 +75,18 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+
+.toDoItem {
+
+
+}
+
+#toDoList{
+
+}
+
+.finishedBtn{
+  
 }
