@@ -20,7 +20,7 @@ const DisplayList = (props) =>{
 
 
     toDoLibrary.splice(index,1)
-    setTimeout(setLibrary([...toDoLibrary]), 1000)
+    setTimeout(()=>setLibrary([...toDoLibrary]), 1000)
     
 
 
