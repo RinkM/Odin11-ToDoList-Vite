@@ -3,40 +3,43 @@ import { useState } from "react"
 import toDoLibrary from "./toDoLibrary"
 
 
-// some help -  made as a ul li list.
-// https://reactjs.org/docs/lists-and-keys.html
 
 const DisplayList = (props) =>{
   const [state, setState] = useState()
-  const [library, setLibrary] = props.hookLibrary;
+  const [library, setLibrary] = props.hookLibrary
+
+  
 
 
-  const markComplete = (itemId)=> {
-    const index = library.findIndex(item =>{
-      return item.itemId == itemId
+  const markComplete = (reactKey)=> {
+    const index = toDoLibrary.findIndex(item =>{
+      return item.reactKey == reactKey
     })
-    library.splice(index,1)
-    setLibrary(toDoLibrary)
+    const removeTask = document.getElementById(reactKey)
+    removeTask.classList.add("removeTaskAnimation")
+
+
+    toDoLibrary.splice(index,1)
+    setTimeout(setLibrary([...toDoLibrary]), 1000)
+    
 
 
   }
 
 
   const ListItem =  (props)=> {
-    console.log(props.item)
-    return <div className = "toDoItem">
+    return (
+    <div className = "toDoItem" id = {props.item.reactKey}>
     {props.item.toDoName} 
-    <button onClick={()=>markComplete(props.item.itemId)} className="finishedBtn">Finished</button>
+    <button onClick={()=>markComplete(props.item.reactKey)} className="finishedBtn">Finished</button>
   </div>
-    
-    
-    
-    
-  }
-  
-  return (<div id = "toDoList">
+  )}
+
+
+  return (
+    <div id = "toDoList">
       {library.map((item)=>
-        <ListItem key ={item.itemId}
+        <ListItem key ={item.reactKey}
           item = {item}/>
         )}
       </div>

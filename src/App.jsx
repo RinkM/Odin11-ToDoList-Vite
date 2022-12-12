@@ -10,8 +10,9 @@ function App() {
 
   return (
     <div className="App">
+      
       <AddForm hookLibrary = {[library, setLibrary]}/>
-    {/* <AddItemBtn/> */}
+    
       <DisplayList hookLibrary = {[library, setLibrary]}/>
     </div>
   )

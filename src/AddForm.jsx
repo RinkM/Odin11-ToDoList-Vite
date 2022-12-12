@@ -5,19 +5,25 @@ import toDoLibrary from "./toDoLibrary"
 
 
 
-const AddForm = ()=>{
+const AddForm = (props)=>{
+  const [library, setLibrary] = props.hookLibrary
 
   const ToDoFactory = (values) => {
-    const toDo = {
+    const creationDate = Date.now()
+
+
+    const taskObject = {
     toDoName: values.toDoName,
     completed:false,
-    itemId:6}
-    return toDo
+    reactKey:creationDate}
+    
+    return taskObject
   }
 
   const addItem = (values)=>{
     toDoLibrary.push(ToDoFactory(values))
-    console.log(toDoLibrary)
+    
+    setLibrary([...toDoLibrary])
   }
 
 
@@ -25,14 +31,14 @@ const AddForm = ()=>{
   const formik = useFormik({
     initialValues: {
       toDoName: '',
-      lastName: '',
-      email: '',
+      // lastName: '',
+      // email: '',
     },
   onSubmit: values => {
 
     console.log(values);
     addItem(values);
-    alert(JSON.stringify(values, null, 2));
+    // alert(JSON.stringify(values, null, 2));
   },
 });
 return (

@@ -4,16 +4,19 @@
 const toDoLibrary = [
     {toDoName:"Eat Breakfast",
     completed:false,
-    itemId:0},
+    reactKey:0},
+
     {toDoName:"Eat Lunch",
     completed:false,
-    itemId:1},
+    reactKey:1},
+
     {toDoName:"Eat Dinner",
     completed:false,
-    itemId:2},
+    reactKey:2},
+
     {toDoName:"Eat Snack",
     completed:false,
-    itemId:3},
+    reactKey:3},
 
 ]
 

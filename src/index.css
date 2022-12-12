@@ -90,3 +90,14 @@ button:focus-visible {
 .finishedBtn{
   
 }
+
+
+.removeTaskAnimation{
+
+}
+
+
+.removeTaskAnimation::before{
+  
+
+}
