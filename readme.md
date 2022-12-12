@@ -1,5 +1,5 @@
-# The Odin Project Assignment 11
-## A ToDo List
+# The Odin Project Assignment 11 : A ToDo List
+
 ## Assignment 
 
 
@@ -8,6 +8,12 @@
 
 
 ## Summary of Learning
-* more practice using React Hooks.  
- - Settings hooks as the same array... `[...toDoLibrary] ` was an interesting problem.
+* More practice with React Hooks.  
+ Settings hooks as the same array... `[...toDoLibrary] ` was an interesting problem.
 * made keys using `date.now()`
+
+
+### Notes to Self
+
+working on animation.  what happens after removing or adding a task?   
+
