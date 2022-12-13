@@ -13,10 +13,13 @@ const AddForm = (props)=>{
 
 
     const taskObject = {
-    toDoName: values.toDoName,
-    completed:false,
-    reactKey:creationDate}
-    
+      toDoName: values.toDoName,
+      completed:false,
+      reactKey:creationDate,
+      description: values.description,
+      dueDate: values.dueDate,
+      priority: "3",
+      project:"Food"}
     return taskObject
   }
 
@@ -31,8 +34,12 @@ const AddForm = (props)=>{
   const formik = useFormik({
     initialValues: {
       toDoName: '',
-      // lastName: '',
-      // email: '',
+      description:"",
+      dueDate: "",
+      priority: "3",
+      project:"Food"
+
+
     },
   onSubmit: values => {
 
@@ -49,29 +56,31 @@ return (
       name="toDoName"
       type="text"
       onChange={formik.handleChange}
-      value={formik.values.firstName}
+      value={formik.values.toDoName}
     />
 
-{/*     
-      <label htmlFor="lastName">Last Name</label>
+    
+    <label htmlFor="description">Description:</label>
     <input
-      id="lastName"
-      name="lastName"
+      id="description"
+      name="description"
       type="text"
       onChange={formik.handleChange}
-      value={formik.values.lastName}
+      value={formik.values.description}
     />
-      <label htmlFor="email">Email Address</label>
+
+    
+      <label htmlFor="dueDate">Deadline:</label>
     <input
 
-      id="email"
-      name="email"
-      type="email"
+      id="dueDate"
+      name="dueDate"
+      type="date"
       onChange={formik.handleChange}
-      value={formik.values.email}
-    /> */}
+      value={formik.values.dueDate}
+    />
 
-    <button type="submit">Add Item</button>
+    <button id = "formButton" type="submit">Add Item</button>
 
   </form>
 
