@@ -17,7 +17,7 @@ const AddForm = (props)=>{
       completed:false,
       reactKey:creationDate,
       description: values.description,
-      dueDate: values.dueDate,
+      deadline: values.deadline,
       priority: "3",
       project:"Food"}
     return taskObject
@@ -35,7 +35,7 @@ const AddForm = (props)=>{
     initialValues: {
       toDoName: '',
       description:"",
-      dueDate: "",
+      deadline: "",
       priority: "3",
       project:"Food"
 
@@ -49,7 +49,7 @@ const AddForm = (props)=>{
   },
 });
 return (
-  <form onSubmit={formik.handleSubmit}>
+  <form className="taskForm" onSubmit={formik.handleSubmit}>
     <label htmlFor="toDoName">Action Item: </label>
     <input
       id="toDoName"
@@ -70,14 +70,14 @@ return (
     />
 
     
-      <label htmlFor="dueDate">Deadline:</label>
+      <label htmlFor="deadline">Deadline:</label>
     <input
 
-      id="dueDate"
-      name="dueDate"
+      id="deadline"
+      name="deadline"
       type="date"
       onChange={formik.handleChange}
-      value={formik.values.dueDate}
+      value={formik.values.deadline}
     />
 
     <button id = "formButton" type="submit">Add Item</button>

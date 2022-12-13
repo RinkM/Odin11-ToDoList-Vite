@@ -1,11 +1,6 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: start;
+#root{
+  width: 100vw;
 }
-
-
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -23,6 +18,23 @@
   -webkit-text-size-adjust: 100%;
 }
 
+
+.App{
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 100px 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.appHeader{ grid-area: 1 / 1 / 2 / 3;
+  background-color: orange;
+  padding: 0 20px;
+  
+
+
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -38,12 +50,13 @@ body {
   /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
+  
 }
 
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
+  
 }
 
 button {
@@ -79,6 +92,13 @@ button:focus-visible {
   }
 }
 
+.flexWrapper{
+  grid-area: 2 / 1 / 3 / 2;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
 form{
   margin: 1em;
   display: flex;
@@ -102,6 +122,12 @@ form{
   background-color: orange;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 1em;
+  margin-top: 1em;
+  margin-right: auto;
+  margin-bottom: 1em;
+  width:400px
+  
+  
 
 }
 
@@ -141,6 +167,17 @@ form{
   
 }
 
+
+#projects{
+  
+}
+
+
+.taskForm{
+  
+
+}
+
 .showDetails{
   transition: all 1.2s ease-in;
   height:25vh;
@@ -151,6 +188,8 @@ form{
   transform:translateX(150vw);
   
 }
+
+
 
 
 .hidden{

@@ -16,6 +16,9 @@ https://www.theodinproject.com/lessons/node-path-javascript-todo-list
 
 ### Notes to Self
 
+React Preview? : https://github.com/itaditya/react-preview/blob/master/README.md
+
+
 **12/12/22** 
 adds details to tasks.
 
