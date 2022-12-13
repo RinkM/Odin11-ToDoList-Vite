@@ -17,6 +17,17 @@ https://www.theodinproject.com/lessons/node-path-javascript-todo-list
 ### Notes to Self
 
 **12/12/22** 
+adds details to tasks.
+
+What about the projects?  Like color coded?  how to assign?   
+
+Form needs to pop up 
+
+Left side, see previous tasks. 
+
+edit tasks.
+
+**12/11/22** 
 finished with basic usage.  user can add and remove items from the list.
 right now, really long tasks cause the whole box to change shape. It's ok but box needs to be standard in shape.  
 
