@@ -14,15 +14,18 @@ const DisplayList = (props) =>{
 
   const ListItem =  (props)=> {
     return (
-    <div className = "taskContainer" id = {"container"+props.item.reactKey}>
       <TaskHeader props = {props.item} hookLibrary = {[library, setLibrary]}/>
-      <TaskBody props = {props.item} />
-    </div>
-  )}
 
+      // <div className = "taskContainer" id = {"container"+props.item.reactKey}>
+    
+    //   <TaskBody props = {props.item} />
+    // </div>
+  )}
+  console.log(library)
 
   return (
-    <div id = "toDoList">
+    <div id = "toDoList" className="backgroundApp">
+      {console.log(library)}
       {library.map((item)=>
         <ListItem key ={item.reactKey}
           item = {item}/>

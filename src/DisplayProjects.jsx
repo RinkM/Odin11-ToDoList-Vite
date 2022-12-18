@@ -27,9 +27,10 @@ const DisplayProjects = ()=>{
   };
 
 return(
-  <div id="projects">
+  <div id="projectContainer backgroundForm">
+
     <ProjectForm hookProject = {[projects, setProjects]} />
-    {listProjects}
+    <div className="projectList">{listProjects}</div>
 
   </div>
 )

@@ -63,3 +63,14 @@ Or keep 1 master library, but each item has a project identity.  select project,
 Inspiration : 
 
 https://mooniidev.github.io/todo-list/ - simple design.   
+
+
+
+
+
+
+receive  :
+date info = 2022-12-17
+store it as taskDate = date, "T23:59:59"
+
+

@@ -37,7 +37,7 @@ const ProjectForm = (props)=>{
   },
 });
 return (
-  <form className = "projectForm" onSubmit={formik.handleSubmit}>
+  <form className = "projectForm backgroundForm" onSubmit={formik.handleSubmit}>
     <label htmlFor="project">Add Project </label>
     <input
       id="project"
