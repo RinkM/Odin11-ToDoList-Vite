@@ -16,17 +16,13 @@ const AddForm = (props)=>{
     console.log([...toDoLibrary]);
       }
 
-
-
   const formik = useFormik({
     initialValues: {
       toDoName: "",
       description:"",
       deadline: "",
-      priority: "3",
+      priority: "",
       project:"Food"
-
-
     },
   onSubmit: values => {
 
@@ -67,6 +63,19 @@ return (
         onChange={formik.handleChange}
         value={formik.values.deadline}
       />
+
+
+
+<label htmlFor="priority">Priority</label>
+<select className="prioritySelect">
+<option value="0">Select a job type</option>
+<option value="1">Low</option>
+<option value="2">Medium</option>
+<option value="3">High</option>
+
+
+</select>
+
 
       <button id = "formButton" type="submit">Add Item</button>
 

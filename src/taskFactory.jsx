@@ -10,7 +10,7 @@ const taskFactory = (values) => {
     reactKey: creationDate,
     description: values.description,
     deadline: values.deadline,
-    priority: "3",
+    priority: values.priority,
     project:"Food"}
 
     if (taskObject.deadline ==""){
