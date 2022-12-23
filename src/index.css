@@ -31,6 +31,7 @@ div{
 
   padding: 0 20px;
   color: #ABD2fa;
+  border-bottom: solid  2pt #3D518C;
 
 }
 
@@ -80,12 +81,17 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: #1e82da;
     background-color: #ffffff;
   }
   a:hover {
     color: #747bff;
   }
+
+  .backgroundApp{
+    background-image: linear-gradient(0deg, #F2F2F8 , #FFFFFF)
+  }
+
   button {
     
   }
@@ -145,7 +151,7 @@ color:#ABD2fa;
 
 .taskContainer {
   display: grid;
-  grid-template-columns: 50px 1fr 50px;
+  grid-template-columns: 20px 50px 1fr 50px;
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
@@ -159,7 +165,7 @@ color:#ABD2fa;
 }
 
 .taskInfo {
-  grid-area: 1 / 2 / 2 / 3;
+  grid-area: 1 / 3 / 2 / 4;
   display: flex; 
   flex-direction: column;
   justify-content: space-between;
@@ -168,13 +174,23 @@ color:#ABD2fa;
   font-size: 1rem;
 }
 
+.projectColor{
+  grid-area: 1 / 1 / 2 / 2;
+  width: 5px;
+  height:auto;
+  border-radius: 8px;
+  
+
+
+  
+}
 
 .taskDetailBtn{
-  grid-area: 1 / 1 / 2 / 2;
+  grid-area: 1 / 2 / 2 / 3;
 }
   
   .taskButtons{
-  grid-area: 1 / 3 / 2 / 4;  
+  grid-area: 1 / 4 / 2 / 5;  
   }
 
 .taskSubTitle{
@@ -241,10 +257,16 @@ color:#ABD2fa;
 
 }
 .backgroundApp{
-  background-color: midnightblue;
+  color-scheme: light dark;
+  /* background-image: linear-gradient(0deg, #F2F2F8 , #FFFFFF) */
+  background-image: linear-gradient(0deg, #151528 , #07070D)
 }
 
 
+
+.backgroundApp{
+
+}
 
 .projectListItem{
   color:#ABD2fa;
