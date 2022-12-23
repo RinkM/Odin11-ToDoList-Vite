@@ -55,7 +55,7 @@ can I make what I have as an accordion folder? click on it, and it opens and sho
 can I change task color?   
 
 Assignment also calls for separate TODO lists for different projects. 
-insert the taskfactory within other libraries?   
+insert the TaskFactory within other libraries?   
 Or keep 1 master library, but each item has a project identity.  select project, only display those tasks.   
 
 
