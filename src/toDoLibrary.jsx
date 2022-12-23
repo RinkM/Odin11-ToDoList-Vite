@@ -1,6 +1,4 @@
 
-
-
 const toDoLibrary = [
     {toDoName:"Eat Breakfast",
     completed:false,
@@ -8,7 +6,10 @@ const toDoLibrary = [
     description:"Eat eggs and toast.",
     deadline: "2021-12-20",
     priority: "3",
-    project:"Food",
+    projectName: "Food",
+    reactKeyProject:"project4",
+    projectColor:"#F4A261",
+    
     dueDate: new Date("2023-12-20T23:59:59"),
 },
 
@@ -18,7 +19,9 @@ const toDoLibrary = [
     description:"Eat sandwich.",
     deadline: "2022-12-20",
     priority: "2",
-    project:"Meals",
+    projectName: "Food",
+    reactKeyProject:"project1",
+    projectColor:"#F4A261",
     dueDate: new Date("2023-12-20T23:59:59"),
     
 },
@@ -29,7 +32,9 @@ const toDoLibrary = [
     description:"Eat mac & cheese.",
     deadline: "2023-12-20",
     priority: "1",
-    project:"Food",
+    projectName: "Meals",
+    reactKeyProject:"project2",
+    projectColor: "#2A9D8F",
     dueDate: new Date("2023-12-20T23:59:59"),
 },
 
