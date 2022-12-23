@@ -8,7 +8,7 @@ const DueDate = (deadline) =>{
   // const [state, setState]= useState()
   const today = new Date()
   const taskDate = deadline.props
-  console.log("taskDate", taskDate)
+  
   if (taskDate){
     const value = differenceInMilliseconds(taskDate, today)
     if (value<0) {
