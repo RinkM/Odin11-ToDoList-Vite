@@ -24,7 +24,7 @@ const DisplayList = (props) =>{
   console.log(library)
 
   return (
-    <div id = "toDoList" className="backgroundApp">
+    <div id = "toDoList">
       {console.log(library)}
       {library.map((item)=>
         <ListItem key ={item.reactKey}
