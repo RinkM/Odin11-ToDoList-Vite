@@ -2,10 +2,10 @@ import toDoLibrary from "./toDoLibrary"
 
 import DueDate from "./DueDate"
 
-
 const TaskHeader = (props) =>{
   const [library, setLibrary] = props.hookLibrary
   
+
   
   const markComplete = (reactKey)=> {
     const removeTask = document.getElementById("taskContainer"+reactKey)
@@ -58,7 +58,7 @@ const TaskHeader = (props) =>{
 
 return (
   <div className="taskContainer backgroundTask" id = {"taskContainer"+props.props.reactKey}>
-    <div className="projectColor" id ={"projectColor"+props.props.reactKey} ></div>
+    <div style = {{backgroundColor: props.props.projectColor}} className="projectColor"  id ={"projectColor"+props.props.reactKey} ></div>
     <div className="taskDetailBtn">
         <button onClick={()=>viewDetails(props.props.reactKey)} className="detailsBtn">
           <i className="fa fa-list fa-2x iconColor" aria-hidden="true"></i>
