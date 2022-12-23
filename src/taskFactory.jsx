@@ -1,7 +1,8 @@
 
 
 
-const taskFactory = (values) => {
+
+const TaskFactory = (values, activeProject) => {
   const creationDate = Date.now()
   
   const taskObject = {
@@ -13,13 +14,51 @@ const taskFactory = (values) => {
     priority: values.priority,
     project:"Food"}
 
+
+
     if (taskObject.deadline ==""){
       taskObject.dueDate = false
     } else{
     taskObject.dueDate = new Date(values.deadline+"T23:59:59")}
-    
-    console.log(taskObject)
-    return taskObject
+
+    const finalTaskObject = Object.assign(taskObject, activeProject)
+    console.log(finalTaskObject)
+    return finalTaskObject
     }
 
-export default taskFactory
+const ProjectFactory = (values) => {
+  const creationDate = Date.now()
+
+  const projectColors = [
+    "#315C2B",
+    "#5AD2F4",
+    "#A599B5",
+    "#EE964B",
+    "#E94F37",
+    "#A51080",
+    "#2A9D8F",
+    "#F4A261"
+  ]
+
+  const randomNum =  ()=>{
+    let randomNum = Math.floor(Math.random()*projectColors.length);
+    return(randomNum)
+  };
+
+  const project = {
+    projectName: values.project,
+    reactKeyProject:creationDate,
+    projectColor:projectColors[randomNum()]
+  }
+  console.log("Factory - projectInfo:",project)
+
+
+  
+  return project
+}
+
+
+
+
+
+export default {TaskFactory, ProjectFactory}
