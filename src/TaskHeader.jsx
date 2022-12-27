@@ -32,7 +32,7 @@ const TaskHeader = (props) =>{
     if (priority == 3){
       return (
       <div className="taskPriority">
-      <span className="spanPriority" style ={{color: "red"}}>  
+      <span className="spanPriority" style ={{color: "rgb(253, 57, 27)"}}>  
         <i className="priority fa fa-exclamation-circle fa-lg" aria-hidden="true">
           </i>
           High Priority</span></div>

@@ -2,12 +2,14 @@ import { useState } from "react"
 import TaskHeader from "./TaskHeader"
 import toDoLibrary from "./toDoLibrary"
 import TaskBody from "./TaskBody"
+import FormAddTask from './FormAddTask'
 
 
 
 const DisplayList = (props) =>{
   const [state, setState] = useState()
   const [library, setLibrary] = props.hookLibrary
+  const [activeProject, setActiveProject] = props.hookActiveProject
 
 
 
@@ -15,21 +17,19 @@ const DisplayList = (props) =>{
   const ListItem =  (props)=> {
     return (
       <TaskHeader props = {props.item} hookLibrary = {[library, setLibrary]}/>
+      
 
-      // <div className = "taskContainer" id = {"container"+props.item.reactKey}>
-    
-    //   <TaskBody props = {props.item} />
-    // </div>
   )}
-  console.log(library)
-
   return (
     <div id = "toDoList">
-      {console.log(library)}
+      <div id = "taskHeaderDiv" style ={{color: activeProject.projectColor}}>
+        <h2>{activeProject.projectName}</h2>
+      </div>
       {library.map((item)=>
         <ListItem key ={item.reactKey}
           item = {item}/>
         )}
+        <FormAddTask hookActiveProject = {[activeProject, setActiveProject]} hookLibrary = {[library, setLibrary]}/>
       </div>
   )
 

@@ -29,11 +29,16 @@ const FormProject = (props)=>{
 
     console.log(values);
     addProject(project);
+      const form = document.getElementById("formProject")
+      form.classList.add("hidden")
+    
+    
     // alert(JSON.stringify(values, null, 2));
   },
 });
 return (
-  <form className = "FormProject backgroundForm" onSubmit={formik.handleSubmit}>
+  <form id = "formProject" className = "hidden backgroundForm" onSubmit={formik.handleSubmit}>
+    <button className="closeWindowBtn">X</button>
     <label htmlFor="project">Add Project </label>
     <input
       id="project"
