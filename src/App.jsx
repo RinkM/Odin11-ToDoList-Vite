@@ -16,12 +16,8 @@ function App() {
   const [activeProject, setActiveProject]= useState(projectLibrary[0])
   return (
     <div className="App backgroundApp">
-      <div className='appHeader backgroundApp'><h1>Get Stuff Done!</h1>
-      </div>
-      <div className='navLeft flexWrapper'>
-        <DisplayProjects hookActiveProject = {[activeProject, setActiveProject]}/>
-        
-      </div>
+      <div className='appHeader backgroundApp'><h1>Get Stuff Done!</h1></div>
+      <DisplayProjects hookActiveProject = {[activeProject, setActiveProject]}/>
       <DisplayList hookActiveProject = {[activeProject, setActiveProject]} hookLibrary = {[library, setLibrary]}/>
     </div>
   )

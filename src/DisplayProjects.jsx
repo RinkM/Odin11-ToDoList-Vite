@@ -49,21 +49,16 @@ const addProjectBtn = ()=>{
 }
 
 return(
-  <div id="projectContainer backgroundForm">
+  <div className='navLeft flexWrapper'>
     <div className="projectHeader"><h2>Projects</h2></div>
-    
-  <div id = "projectListID" className="projectList">{listProjects} 
-  </div>
-  <button id = "addProjectBtn" style ={{color: "white"}} className = "projectListItem" key="addProjectBtn"
+    <div id = "projectListID" className="projectList">{listProjects}</div>
+    <button id = "addProjectBtn" style ={{color: "white"}} className = "projectListItem" key="addProjectBtn"
       onClick= {()=>addProjectBtn()}>     
       + New Project
     </button>
     <FormProject hookProject = {[projects, setProjects]} hookActiveProject = {[activeProject, setActiveProject]} />
-  
-    
-    
-
   </div>
+  
 )
 
 }

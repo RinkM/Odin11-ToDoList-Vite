@@ -39,17 +39,18 @@ const FormProject = (props)=>{
 });
 return (
   <form id = "formProject" className = "hidden backgroundForm" onSubmit={formik.handleSubmit}>
-    <button type = "button" onClick={()=>addProjectBtn()}  className="closeWindowBtn">X</button>
     <label htmlFor="project">Add Project </label>
     <input
-      id="project"
+      id="projectInput"
       name="project"
       type="text"
       onChange={formik.handleChange}
       value={formik.values.project}
     />
-    <button id = "projectFormBtn" className= "formButton"type="submit">Add</button>
-
+    <div className="buttonContainer">
+      <button id = "projectFormBtn" className= "formButton"type="submit">Add</button>
+      <button type = "button" onClick={()=>addProjectBtn()}  className="formButton">Cancel</button>
+    </div>
   </form>
 
 );

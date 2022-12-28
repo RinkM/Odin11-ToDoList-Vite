@@ -100,7 +100,7 @@ return (
 
 
       <div id = "formTaskPriority">
-        <label id = "priorityLabel" htmlFor="priority">Priority</label>
+        <label id = "priorityLabel" htmlFor="priority">Priority:</label>
         <select 
           id = "prioritySelect"
           name ="priority"

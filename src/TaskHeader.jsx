@@ -56,6 +56,10 @@ const TaskHeader = (props) =>{
   }
 
 
+
+
+  
+
 return (
   <div className="taskContainer backgroundTask" id = {"taskContainer"+props.props.reactKey}>
     <div style = {{backgroundColor: props.props.projectColor}} className="projectColor"  id ={"projectColor"+props.props.reactKey} ></div>
