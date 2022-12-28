@@ -4,22 +4,25 @@ import toDoLibrary from "./toDoLibrary"
 import TaskBody from "./TaskBody"
 import FormAddTask from './FormAddTask'
 
-
+// ! Listitem and taskheader are redundent.  can condense down...
 
 const DisplayList = (props) =>{
   const [state, setState] = useState()
   const [library, setLibrary] = props.hookLibrary
   const [activeProject, setActiveProject] = props.hookActiveProject
 
-
+  
 
 
   const ListItem =  (props)=> {
-    return (
-      <TaskHeader props = {props.item} hookLibrary = {[library, setLibrary]}/>
-      
+    
+    if (activeProject.projectName =="All"){
+      return <TaskHeader props = {props.item} hookLibrary = {[library, setLibrary]}/>
+    } else if (activeProject.projectName == props.item.projectName)
+    {
+    return <TaskHeader props = {props.item} hookLibrary = {[library, setLibrary]}/>
+    }}
 
-  )}
   return (
     <div id = "toDoList">
       <div id = "taskHeaderDiv" style ={{color: activeProject.projectColor}}>
@@ -29,7 +32,7 @@ const DisplayList = (props) =>{
         <ListItem key ={item.reactKey}
           item = {item}/>
         )}
-        <FormAddTask hookActiveProject = {[activeProject, setActiveProject]} hookLibrary = {[library, setLibrary]}/>
+      <FormAddTask hookActiveProject = {[activeProject, setActiveProject]} hookLibrary = {[library, setLibrary]}/>
       </div>
   )
 

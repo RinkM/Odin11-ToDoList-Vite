@@ -116,22 +116,76 @@ button:focus-visible {
 }
 
 
-form{
+#taskFormContainer{
+}
+
+
+
+
+#newTaskBtn{
+
+  justify-content: center;
+  color:#abd2fa;
+  
+  margin:3px 0px;
+  padding:5px;
+  font-size: 2em;
+}
+
+.taskForm{
   margin: 1em;
   font-weight: bold;
+  display: grid;
+  grid-template-columns: 1fr 1fr 70px;
+  grid-template-rows: 1fr 1fr;
+  padding: 1em;
+  justify-items: left;
+  align-items: center;
+
+  grid-column-gap: 5px;
+  grid-row-gap: 1px;
+  transition: all 1.2s ease-in;
+  padding: 5px;
+  border-radius: 8px;
+  /* border: 1px solid gainsboro; */
+  margin: 5px 0;
+}
+
+/* justify-self: center; */
+
+#taskFormContainer{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  /* border: 1px solid black; */
-  padding: 1em;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 8px;
+  grid-area: 1 / 1 / 2 / 2;
+
 
 }
-#formButton{
+
+#formTaskDescription{
+  display: flex;
+  flex-direction: column;
+  grid-area: 2 / 1 / 3 / 2;
+}
+#formTaskDeadline{
+  display: flex;
+  flex-direction: column;
+
+  grid-area: 1 / 2 / 2 / 3;
+}
+#formTaskPriority{
+  display: flex;
+  flex-direction: column;
+  grid-area: 2 / 2 / 3 / 3;
+}
+#taskFormBtn{
+  grid-area: 1 / 3 / 3 / 4;
+  background-color: #ABD2fa;
+  margin: 10px auto;
+}
+
+.formButton{
   margin: 1em 0 0;
   background-color:#ABD2fa;
-  width: 100px;
 }
 input{
   margin-bottom: .2em;
@@ -139,6 +193,14 @@ input{
 
 #formProject{
   position: absolute;
+  margin: 1em;
+  font-weight: bold;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid black; */
+  padding: 1em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 8px;
 }
 
 .closeWindowBtn{
@@ -261,6 +323,9 @@ border: 2pt solid white;
   
 }
 
+.view{
+  display:contents;
+}
 
 .hidden{
   display:none;
@@ -279,6 +344,7 @@ border: 2pt solid white;
 
 }
 .backgroundApp{
+  height:100vh;
   color-scheme: light dark;
   /* background-image: linear-gradient(0deg, #F2F2F8 , #FFFFFF) */
   background-image: linear-gradient(0deg, #151528 , #07070D)
@@ -305,4 +371,7 @@ input{
 
 .activeProject{
   border : 2px white solid;
+}
+.flex{
+  display: flex;
 }

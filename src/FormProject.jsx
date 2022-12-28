@@ -10,7 +10,11 @@ import TaskFactory from "./TaskFactory"
 const FormProject = (props)=>{
   const [projects, setProjects] = props.hookProject
   
-
+  const addProjectBtn = ()=>{
+    const form = document.getElementById("formProject")
+    form.classList.toggle("hidden")
+    form.classList.toggle("flex")
+  }
 
   const addProject = (project)=>{
     projects.push(project)
@@ -24,21 +28,18 @@ const FormProject = (props)=>{
       project: '',
     },
   onSubmit: values => {
-    
-    const project = TaskFactory.ProjectFactory(values)
+    addProjectBtn()
 
+    const project = TaskFactory.ProjectFactory(values)
     console.log(values);
     addProject(project);
       const form = document.getElementById("formProject")
       form.classList.add("hidden")
-    
-    
-    // alert(JSON.stringify(values, null, 2));
   },
 });
 return (
   <form id = "formProject" className = "hidden backgroundForm" onSubmit={formik.handleSubmit}>
-    <button className="closeWindowBtn">X</button>
+    <button type = "button" onClick={()=>addProjectBtn()}  className="closeWindowBtn">X</button>
     <label htmlFor="project">Add Project </label>
     <input
       id="project"
@@ -47,7 +48,7 @@ return (
       onChange={formik.handleChange}
       value={formik.values.project}
     />
-    <button id = "formButton" type="submit">Add</button>
+    <button id = "projectFormBtn" className= "formButton"type="submit">Add</button>
 
   </form>
 

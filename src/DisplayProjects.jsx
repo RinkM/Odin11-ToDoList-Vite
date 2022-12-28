@@ -45,6 +45,7 @@ const addProjectBtn = ()=>{
   
   const form = document.getElementById("formProject")
   form.classList.remove("hidden")
+  form.classList.toggle("flex")
 }
 
 return(
