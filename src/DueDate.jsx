@@ -4,7 +4,7 @@ import {formatDistanceToNow, differenceInMilliseconds} from "date-fns";
 import { useState } from "react";
 
 const DueDate = (deadline) =>{
-  
+
   // const [state, setState]= useState()
   const today = new Date()
   const taskDate = deadline.props

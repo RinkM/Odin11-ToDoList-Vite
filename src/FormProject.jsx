@@ -29,8 +29,7 @@ const FormProject = (props)=>{
     },
   onSubmit: values => {
     addProjectBtn()
-
-    const project = TaskFactory.ProjectFactory(values)
+    const project = TaskFactory.ProjectFactory(values, projects)
     console.log(values);
     addProject(project);
       const form = document.getElementById("formProject")

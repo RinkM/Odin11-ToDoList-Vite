@@ -26,7 +26,7 @@ const TaskFactory = (values, activeProject) => {
     return finalTaskObject
     }
 
-const ProjectFactory = (values) => {
+const ProjectFactory = (values, projectLibrary) => {
   const creationDate = Date.now()
 
   const projectColors = [
@@ -40,6 +40,18 @@ const ProjectFactory = (values) => {
     "#F4A261"
   ]
 
+  const index = (projectLibrary.length - 1)-(Math.floor(projectLibrary.length/projectColors.length)*projectColors.length)
+  
+  // const colorIndex =  ()=>{
+  //   let colorChoice = projectColors.length;
+  //   let projectCount = projectLibrary.length;
+
+  //   if (projectCount  )
+
+  //   let randomNum = Math.floor(Math.random()*projectColors.length);
+  //   return(randomNum)
+  // };
+
   const randomNum =  ()=>{
     let randomNum = Math.floor(Math.random()*projectColors.length);
     return(randomNum)
@@ -48,7 +60,7 @@ const ProjectFactory = (values) => {
   const project = {
     projectName: values.project,
     reactKeyProject:creationDate,
-    projectColor:projectColors[randomNum()]
+    projectColor:projectColors[index]
   }
   console.log("Factory - projectInfo:",project)
 

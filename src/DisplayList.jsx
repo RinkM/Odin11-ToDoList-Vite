@@ -1,36 +1,74 @@
 import { useState } from "react"
 import TaskHeader from "./TaskHeader"
 import toDoLibrary from "./toDoLibrary"
-import TaskBody from "./TaskBody"
 import FormAddTask from './FormAddTask'
+import projectLibrary from "./projectLibrary"
 
-// ! Listitem and taskheader are redundent.  can condense down...
+import differenceInCalendarDays from "date-fns/differenceInCalendarDays"
+
+// ! SortItem and taskheader are redundent.  can condense down...
 
 const DisplayList = (props) =>{
   const [state, setState] = useState()
   const [library, setLibrary] = props.hookLibrary
   const [activeProject, setActiveProject] = props.hookActiveProject
+  const [projects, setProjects] = useState(projectLibrary[0])
+  const [deadlineFilter, setDeadlineFilter] = props.hookDeadlineFilter
 
-  
-
-
-  const ListItem =  (props)=> {
+  const SortItem =  (props)=> {
     
-    if (activeProject.projectName =="All"){
-      return <TaskHeader props = {props.item} hookLibrary = {[library, setLibrary]}/>
-    } else if (activeProject.projectName == props.item.projectName)
-    {
-    return <TaskHeader props = {props.item} hookLibrary = {[library, setLibrary]}/>
-    }}
+    
+    const daySort = () => {
+      const today = Date.now();
+      const days = differenceInCalendarDays(props.item.dueDate, today);
+      // console.log("daystildue", days)
+      if (activeProject.time == "Any Time"){
+        return true
+      } else if (days >= activeProject.time) {
+        return false
+      } else {
+        return true
+      };
+    }
+
+    const projectSort = () =>{
+      // console.log("projectSort", activeProject.projectName, props.item.projectName)
+
+      if (activeProject.projectName =="All Projects"){
+        return true
+      } else if (activeProject.projectName == props.item.projectName){
+        return true
+      }else {
+        return false
+      };
+    }
+
+    if (daySort() == true && projectSort() ==true){
+      console.log("both sorts are true.")
+      return <TaskHeader hookActiveProject = {[activeProject, setActiveProject]} hookDeadlineFilter = {[deadlineFilter, setDeadlineFilter]} props = {props.item} hookLibrary = {[library, setLibrary]}/>
+    } else if (daySort() == false && projectSort() ==true){
+      console.log("DaySorter is false")
+
+    } else if (daySort() == true && projectSort() ==false){
+      console.log("ProjectSorter is false")
+    }
+
+
+    // if (activeProject.projectName == "All")
+    // {return <TaskHeader props = {props.item} hookLibrary = {[library, setLibrary]}/>
+    // } else if (activeProject.projectName == props.item.projectName)
+    // {
+    // return <TaskHeader props = {props.item} hookLibrary = {[library, setLibrary]}/>
+    // }
+  }
 
   return (
     <div id = "toDoList">
       <div id = "taskHeaderDiv" style ={{color: activeProject.projectColor}}>
-        <h2>{activeProject.projectName}</h2>
+        <h2>{activeProject.projectName} Due: {deadlineFilter.listText}</h2>
       </div>
       {library.map((item)=>
-        <ListItem key ={item.reactKey}
-          item = {item}/>
+        <SortItem key ={item.reactKey+Date.now()} item = {item}/>
         )}
       <FormAddTask hookActiveProject = {[activeProject, setActiveProject]} hookLibrary = {[library, setLibrary]}/>
       </div>

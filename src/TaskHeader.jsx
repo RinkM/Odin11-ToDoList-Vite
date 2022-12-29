@@ -1,10 +1,29 @@
 import toDoLibrary from "./toDoLibrary"
 
 import DueDate from "./DueDate"
+import FormEditTask from "./FormEditTask"
+
+
+
+
+
 
 const TaskHeader = (props) =>{
   const [library, setLibrary] = props.hookLibrary
-  
+  const [deadlineFilter, setDeadlineFilter] = props.hookDeadlineFilter
+  const [activeProject, setActiveProject] = props.hookActiveProject
+
+
+
+
+  const editButton= (taskProps)=>{
+    
+    const task = document.getElementById("taskContainer"+taskProps.reactKey)
+    console.log(task)
+    return 
+    
+
+  }
 
   
   const markComplete = (reactKey)=> {
@@ -55,12 +74,10 @@ const TaskHeader = (props) =>{
     }
   }
 
-
-
-
-  
-
 return (
+  
+  <div className="backgroundTask " id = {"taskForm"+props.props.reactKey}>
+    <FormEditTask props = {props.props} hookActiveProject = {[activeProject, setActiveProject]} hookLibrary = {[library, setLibrary]}/>
   <div className="taskContainer backgroundTask" id = {"taskContainer"+props.props.reactKey}>
     <div style = {{backgroundColor: props.props.projectColor}} className="projectColor"  id ={"projectColor"+props.props.reactKey} ></div>
     <div className="taskDetailBtn">
@@ -85,15 +102,17 @@ return (
       </div>
     </div>
     <div className="taskButtons">
+      <button onClick={()=>editButton(props.props)} className="finishedBtn">
+      Edit </button>
           
-          <button onClick={()=>markComplete(props.props.reactKey)} className="finishedBtn">
-            <i className="fa fa-check fa-2x iconColor" aria-hidden="true"></i>
-            </button>
+      <button onClick={()=>markComplete(props.props.reactKey)} className="finishedBtn">
+        <i className="fa fa-check fa-2x iconColor" aria-hidden="true"></i>
+      </button>
         </div>
     
   </div>
   
-
+  </div>
   
 )
 

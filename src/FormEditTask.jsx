@@ -7,10 +7,10 @@ import TaskFactory from "./TaskFactory"
 
 
 
-const FormAddTask = (props)=>{
+const FormEditTask = (props)=>{
   const [activeProject, setActiveProject] = props.hookActiveProject
   const [library, setLibrary] = props.hookLibrary
-  // console.log("formProps", props)
+  
 
   const addItem = (values)=>{
     toDoLibrary.push(TaskFactory.TaskFactory(values, activeProject))
@@ -58,13 +58,13 @@ const FormAddTask = (props)=>{
       // </div>
     )
   }
-
+  console.log("EditformProps", props.props)
   const formik = useFormik({
     initialValues: {
-      toDoName: props.toDoName,
-      description:"",
-      deadline: "",
-      priority: "",
+      toDoName: props.props.toDoName,
+      description:props.props.description,
+      deadline: props.props.deadline,
+      priority: props.props.priority,
       project:"Food"
     },
   onSubmit: values => {
@@ -149,4 +149,4 @@ return (
 
 
 
-export default FormAddTask
+export default FormEditTask
