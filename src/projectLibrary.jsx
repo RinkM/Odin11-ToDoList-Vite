@@ -1,7 +1,7 @@
 
 
 const projectLibrary = [[
-  {projectName: "All Projects",
+  {projectName: "All",
   reactKeyProject:"project0",
   projectColor:"#3d518c",
   time: "All"}
@@ -15,8 +15,9 @@ const projectLibrary = [[
   reactKeyProject:"project2",
   projectColor: "#5AD2F4",
   time:"All"}
-
-],["All Projects"], ["All Projects", 7,30]]
+],
+{filter:"Any Time", listText:"Any Time", reactID :0},
+["All Projects", 7,30]]
 
 
 

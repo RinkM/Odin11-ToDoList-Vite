@@ -14,31 +14,35 @@ const FilterProjectBtns = (props) =>{
   const [deadlineFilter, setDeadlineFilter] = props.hookDeadlineFilter
 
 
-
-
-  const highlightProjectBtn = (btnID)=> {
+  const highlightProjectBtn = (project)=> {
+    
+    const activeProject = document.getElementById("project"+project.reactKeyProject)
     const projectList = [...document.getElementById("projectListID").children]
-    // projectList.forEach(button => button.classList.remove("activeProject"))
-
-    const projectBtn = document.getElementById(btnID)
-    projectBtn.classList.add("activeProject")
-
+    projectList.forEach(button => button.classList.remove("activeProject"))
+    activeProject.classList.add("activeProject")
   }
 
-  const projectClick = (name)=>{
-    const projectBtn = document.getElementById(name.reactKeyProject)
-    projectBtn.classList.add("activeProject")
-    
-    // highlightProjectBtn(name.reactKeyProject)
+  const projectClick = (project)=>{
+    console.log("project project",project)
+    highlightProjectBtn(project)
 
-    setActiveProject(()=>name)
-    console.log("project name",name)
-    console.log("active-Project", activeProject)
-    
+    setActiveProject(project)
   };
 
   
 
+  const filterButtons = projects.map((project) =>{
+    return(
+      <button id = {"project"+project.reactKeyProject} 
+        style ={{color: project.projectColor}} 
+        className = "projectListItem" 
+        key={"projectBtn"+project.reactKeyProject}
+        onClick= {()=>projectClick(project)}>
+        {project.projectName}
+      </button>
+      )
+
+      });
 
 
   const ProjectFilters = (project) =>{    
@@ -46,7 +50,7 @@ const FilterProjectBtns = (props) =>{
       <button id = {project.project.reactKeyProject} 
         style ={{color: project.project.projectColor}} 
         className = "projectListItem" 
-        key={Date.now()}
+        key={"key"+Date.now()}
         onClick= {()=>projectClick(project.project)}>
         {project.project.projectName}
       </button>)
@@ -54,16 +58,16 @@ const FilterProjectBtns = (props) =>{
 
   return(
     <div id = "projectListID" className="filterList projectList">
-      {projects.map((project)=>{
-        return <ProjectFilters key = {"key"+project.reactKeyProject} project = {project}/>}
-     )
-    }
-
-
+      {filterButtons}
   </div>)
 
 }
 
+
+// {projects.map((project)=>{
+//   return <ProjectFilters key = {"key"+project.reactKeyProject} project = {project}/>}
+// )
+// }
 
 
 

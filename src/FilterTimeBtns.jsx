@@ -8,51 +8,48 @@ const FilterTimeBtns = (props) =>{
   const [activeProject, setActiveProject] = props.hookActiveProject
   const [deadlineFilter, setDeadlineFilter] = props.hookDeadlineFilter
 
-
   const daysList = [
-    {filter:"Any Time", listText:"Any Time", reactID :0}, 
-    {filter:7, listText:"7 Days",reactID :1},
-    {filter:30, listText:"30 Days",reactID :2}
+    {filter:"Any Time", listText:"Any Time", reactID :0, }, 
+    {filter:7, listText:"7 Days",reactID :1, },
+    {filter:30, listText:"30 Days",reactID :2, }
   ]
 
-  const FilterButtons = (props)=> {
-    return(
-    <button       
-    id = {"timeFilterBtn"+props.DaysListItem.reactID} 
-    // style ={{color: "white"}} 
-    className = "projectListItem dateSortBtn" 
-    onClick= {()=>updateTimeFilter(props.DaysListItem)}>
-    {props.DaysListItem.listText}
-    </button>)
-  }
 
-  const highlightProjectBtn = (btnID)=> {
-    
-    const projectList = [...document.getElementById("projectListID").children]
-    // projectList.forEach(button => button.classList.remove("activeProject"))
-  
-    const projectBtn = document.getElementById(btnID)
-    console.log(projectBtn)
-    projectBtn.classList.add("activeProject")
-  }
+  const filterButtons = daysList.map((DaysListItem) =>{
+    return(
+      <button       
+      id = {"timeFilterBtn"+DaysListItem.reactID} 
+      key = {"timeFilterBtn"+DaysListItem.reactID} 
+      className = "projectListItem dateSortBtn" 
+      onClick= {()=>updateTimeFilter(DaysListItem)}>
+      {DaysListItem.listText}
+      </button>
+    )
+
+      });
 
   const updateTimeFilter = (DaysListItem)=>{
-    highlightProjectBtn("timeFilterBtn"+DaysListItem.reactID)
-    activeProject.time = DaysListItem.filter;
     setDeadlineFilter(DaysListItem)
+    highlightProjectBtn(DaysListItem)
     console.log("DaysListItem", DaysListItem)
   }
-  
+
+  const highlightProjectBtn = (filter)=> {
+    console.log(filter)
+    const activeFilter = document.getElementById("timeFilterBtn"+filter.reactID)
+    const projectList = [...document.getElementById("dateFilterContainer").children]
+    projectList.forEach(button => button.classList.remove("activeProject"))
+    activeFilter.classList.add("activeProject")
+  }
 
 return(
-
     <div id = "dateFilterContainer" className="filterList">
-      {daysList.map((DaysListItem) =>{
-        return <FilterButtons key = {"filter"+DaysListItem.reactID} DaysListItem = {DaysListItem}/>}
-     )
-    }
+      {filterButtons}
+      
+        {/* //  <FilterButtons key = {"filter"+DaysListItem.reactID} DaysListItem = {DaysListItem}/> */}
+       
     </div>
+    
 )
-
 }
 export default FilterTimeBtns

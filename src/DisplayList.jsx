@@ -46,7 +46,7 @@ const DisplayList = (props) =>{
     const projectSort = () =>{
       // console.log("projectSort", activeProject.projectName, props.item.projectName)
 
-      if (activeProject.projectName =="All Projects"){
+      if (activeProject.projectName =="All"){
         return true
       } else if (activeProject.projectName == props.item.projectName){
         return true
@@ -56,20 +56,18 @@ const DisplayList = (props) =>{
     }
 
     if (daySort() == true && projectSort() ==true){
-      console.log("both sorts are true.")
       return <TaskHeader hookActiveProject = {[activeProject, setActiveProject]} hookDeadlineFilter = {[deadlineFilter, setDeadlineFilter]} props = {props.item} hookLibrary = {[library, setLibrary]}/>
     } else if (daySort() == false && projectSort() ==true){
-      console.log("DaySorter is false")
+
 
     } else if (daySort() == true && projectSort() ==false){
-      console.log("ProjectSorter is false")
     }
   }
-
+console.log("deadlineFilter", deadlineFilter)
   return (
     <div id = "toDoList">
       <div id = "taskHeaderDiv" style ={{color: activeProject.projectColor}}>
-        <h2>{activeProject.projectName} Due: {deadlineFilter.listText}</h2>
+        <h2>{activeProject.projectName} Projects Due: {deadlineFilter.listText}</h2>
       </div>
       {library.map((item)=>
         <SortItem key ={item.reactKey+Date.now()} item = {item}/>

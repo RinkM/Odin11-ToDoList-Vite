@@ -44,7 +44,12 @@ const FormAddTask = (props)=>{
 
   const AddTaskBtn = () => {
 
-
+    try {
+      const form = document.getElementById("formDiv")
+      form.classList.add("hidden")
+    }catch {
+        console.log("formAddTask Error - no formDiv. Should occur on first load")
+    }finally {}
     return(
         <button className="flex" id = "newTaskBtn" onClick={()=>showForm()}>+ New Task</button>
     )
@@ -71,8 +76,8 @@ const FormAddTask = (props)=>{
 });
 return (
   <div id = "taskFormDiv" className="taskFormContainer backgroundForm">
-    <AddTaskBtn/>
     
+    <AddTaskBtn/>
     <div id = "formDiv" className="hidden">
     
     <form id = "taskFormID" className="taskForm addTaskBtn" onSubmit={formik.handleSubmit}>
@@ -133,6 +138,7 @@ return (
 
     </form>
     </div>
+    
   </div>
 );
 }

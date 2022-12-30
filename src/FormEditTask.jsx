@@ -128,7 +128,7 @@ return (
         </select>
       </div>
 
-      <button id = "taskFormBtn" className= "formButton" type="submit">Add Item</button>
+      <button id = "taskFormBtn" className= "formButton" type="submit">Edit Item</button>
 
     </form>
   </div>
