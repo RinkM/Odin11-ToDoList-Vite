@@ -19,7 +19,7 @@ const FilterTimeBtns = (props) =>{
     return(
     <button       
     id = {"timeFilterBtn"+props.DaysListItem.reactID} 
-    style ={{color: "white"}} 
+    // style ={{color: "white"}} 
     className = "projectListItem dateSortBtn" 
     onClick= {()=>updateTimeFilter(props.DaysListItem)}>
     {props.DaysListItem.listText}

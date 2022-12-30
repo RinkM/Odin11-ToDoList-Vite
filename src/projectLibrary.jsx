@@ -3,7 +3,7 @@
 const projectLibrary = [[
   {projectName: "All Projects",
   reactKeyProject:"project0",
-  projectColor:"white",
+  projectColor:"#3d518c",
   time: "All"}
   ,
   {projectName: "Food",

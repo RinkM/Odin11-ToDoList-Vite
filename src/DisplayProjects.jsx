@@ -25,7 +25,7 @@ const addProjectBtn = ()=>{
 
 
 return(
-  <div className='navLeft flexWrapper'>
+  <div className='navLeft'>
     <div className="projectHeader"><h2>Projects</h2></div>
     
     <FilterTimeBtns 
@@ -37,7 +37,7 @@ return(
       hookProject = {[projects, setProjects]} 
       hookActiveProject = {[activeProject, setActiveProject]}  />
 
-    <button id = "addProjectBtn" style ={{color: "white"}} className = "projectListItem" key="addProjectBtn"
+    <button id = "addProjectBtn" className = "projectListItem" key="addProjectBtn"
       onClick= {()=>addProjectBtn()}>     
       + New Project
     </button>

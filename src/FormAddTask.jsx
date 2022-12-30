@@ -22,25 +22,17 @@ const FormAddTask = (props)=>{
 
   const hideForm=()=>{
     const form = document.getElementById("formDiv")
-    form.classList.toggle("hidden")
-
-    const container = document.getElementById("taskFormDiv")
-    container.classList.toggle("taskMaxHeightSmall")
-    container.classList.toggle("taskMaxHeightLarge")
+    form.classList.add("hidden")
 
     const button = document.getElementById("newTaskBtn")
-    button.classList.toggle("hidden")
-    button.classList.toggle("flex")
+    button.classList.remove("hidden")
+    button.classList.add("flex")
   }
 
 
   const showForm = ()=> {
     const form = document.getElementById("formDiv")
     form.classList.remove("hidden")
-
-    const container = document.getElementById("taskFormDiv")
-    container.classList.toggle("taskMaxHeightSmall")
-    container.classList.toggle("taskMaxHeightLarge")
 
     const button = document.getElementById("newTaskBtn")
     button.classList.toggle("hidden")
@@ -51,6 +43,8 @@ const FormAddTask = (props)=>{
 
 
   const AddTaskBtn = () => {
+
+
     return(
         <button className="flex" id = "newTaskBtn" onClick={()=>showForm()}>+ New Task</button>
     )
@@ -76,7 +70,7 @@ const FormAddTask = (props)=>{
 
 });
 return (
-  <div id = "taskFormDiv" className="taskFormContainer taskMaxHeightSmall backgroundForm">
+  <div id = "taskFormDiv" className="taskFormContainer backgroundForm">
     <AddTaskBtn/>
     
     <div id = "formDiv" className="hidden">

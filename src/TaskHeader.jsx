@@ -50,14 +50,14 @@ const TaskHeader = (props) =>{
     if (priority == 3){
       return (
       <div className="taskPriority">
-      <span className="spanPriority" style ={{color: "rgb(253, 57, 27)"}}>  
+      <span className="spanPriority" style ={{color: "rgb(230, 39, 10)"}}>  
         <i className="priority fa fa-exclamation-circle fa-lg" aria-hidden="true">
           </i>
           High Priority</span></div>
       )
     } else if (priority == 2){
       return (<div className="taskPriority">
-      <span className="spanPriority" style = {{color: "yellow"}}> 
+      <span className="spanPriority" style = {{color: "rgb(6, 83, 232)"}}> 
         <i className="priority fa fa-exclamation-circle fa-lg" aria-hidden="true">
           </i>Medium Priority</span></div>
       )
@@ -74,12 +74,12 @@ const TaskHeader = (props) =>{
   }
 
 return (
-  <div className="backgroundTask " id = {"taskContainer"+props.props.reactKey}>
+  <div className="backgroundTask taskContainer " id = {"taskContainer"+props.props.reactKey}>
 
     <FormEditTask props = {props.props} hookActiveProject = {[activeProject, setActiveProject]} hookLibrary = {[library, setLibrary]}/>
   
   
-  <div className="taskContainer backgroundTask" id = {"taskInfo"+props.props.reactKey}>
+  <div className="taskInfoContainer backgroundTask" id = {"taskInfo"+props.props.reactKey}>
     <div style = {{backgroundColor: props.props.projectColor}} className="projectColor"  id ={"projectColor"+props.props.reactKey} ></div>
     <div className="taskDetailBtn">
         <button onClick={()=>viewDetails(props.props.reactKey)} className="detailsBtn">
@@ -88,12 +88,8 @@ return (
       </div>
 
     <div className="taskInfo">
-      <div className = "taskTitle">
-        <div className="taskName">{props.props.toDoName} 
-        </div>
-
-
-      </div>
+      <h2 className = "taskTitle">{props.props.toDoName} 
+      </h2>
       <div className = "taskSubTitle">
         {priority(props.props.priority)}
         <DueDate props = {props.props.dueDate}/>
@@ -103,9 +99,12 @@ return (
       </div>
     </div>
     <div className="taskButtons">
-      <button id = {"editBtn"+ props.props.reactKey} onClick={()=>editButton(props.props)} className="finishedBtn">Edit</button>
+      <button id = {"editBtn"+ props.props.reactKey} onClick={()=>editButton(props.props)} className="finishedBtn">
+        <i className="fa fa-pencil fa-lg iconColor" aria-hidden="true"></i>
+      </button>
       <button id = {"checkTask"+ props.props.reactKey} onClick={()=>markComplete(props.props.reactKey)} className="finishedBtn">
-        <i className="fa fa-check fa-2x iconColor" aria-hidden="true"></i>
+      <i className="fa fa-check-square-o fa-2x iconColor" aria-hidden="true"></i>
+
       </button>
         </div>
     
