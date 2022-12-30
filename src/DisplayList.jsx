@@ -15,9 +15,21 @@ const DisplayList = (props) =>{
   const [projects, setProjects] = useState(projectLibrary[0])
   const [deadlineFilter, setDeadlineFilter] = props.hookDeadlineFilter
 
+
+
+
+// ! this is the + Add Task button function. <AddTaskBtn/>
+  // const AddTaskBtn = () => {
+  //   return(
+  //     // <div id = "addTaskBtn" className="backgroundTask taskForm">
+  //       <button className="flex" id = "newTaskBtn" onClick={()=>showForm()}>+ New Task</button>
+          
+  //     // </div>
+  //   )
+  // }
+
+
   const SortItem =  (props)=> {
-    
-    
     const daySort = () => {
       const today = Date.now();
       const days = differenceInCalendarDays(props.item.dueDate, today);
@@ -52,14 +64,6 @@ const DisplayList = (props) =>{
     } else if (daySort() == true && projectSort() ==false){
       console.log("ProjectSorter is false")
     }
-
-
-    // if (activeProject.projectName == "All")
-    // {return <TaskHeader props = {props.item} hookLibrary = {[library, setLibrary]}/>
-    // } else if (activeProject.projectName == props.item.projectName)
-    // {
-    // return <TaskHeader props = {props.item} hookLibrary = {[library, setLibrary]}/>
-    // }
   }
 
   return (

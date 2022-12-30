@@ -17,12 +17,11 @@
 
 .App{
   height:100vh;
-
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    grid-template-rows: 100px 1fr 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 100px 1fr 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 
 .appHeader{ grid-area: 1 / 1 / 2 / 3;

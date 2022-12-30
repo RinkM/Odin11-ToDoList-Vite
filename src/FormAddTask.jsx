@@ -10,7 +10,7 @@ import TaskFactory from "./TaskFactory"
 const FormAddTask = (props)=>{
   const [activeProject, setActiveProject] = props.hookActiveProject
   const [library, setLibrary] = props.hookLibrary
-  // console.log("formProps", props)
+  
 
   const addItem = (values)=>{
     toDoLibrary.push(TaskFactory.TaskFactory(values, activeProject))
@@ -52,10 +52,7 @@ const FormAddTask = (props)=>{
 
   const AddTaskBtn = () => {
     return(
-      // <div id = "addTaskBtn" className="backgroundTask taskForm">
         <button className="flex" id = "newTaskBtn" onClick={()=>showForm()}>+ New Task</button>
-          
-      // </div>
     )
   }
 
@@ -65,7 +62,6 @@ const FormAddTask = (props)=>{
       description:"",
       deadline: "",
       priority: "",
-      project:"Food"
     },
   onSubmit: values => {
     

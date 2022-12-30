@@ -11,8 +11,8 @@ const TaskFactory = (values, activeProject) => {
     reactKey: creationDate,
     description: values.description,
     deadline: values.deadline,
-    priority: values.priority,
-    project:"Food"}
+    priority: values.priority
+  }
 
 
 
@@ -41,16 +41,6 @@ const ProjectFactory = (values, projectLibrary) => {
   ]
 
   const index = (projectLibrary.length - 1)-(Math.floor(projectLibrary.length/projectColors.length)*projectColors.length)
-  
-  // const colorIndex =  ()=>{
-  //   let colorChoice = projectColors.length;
-  //   let projectCount = projectLibrary.length;
-
-  //   if (projectCount  )
-
-  //   let randomNum = Math.floor(Math.random()*projectColors.length);
-  //   return(randomNum)
-  // };
 
   const randomNum =  ()=>{
     let randomNum = Math.floor(Math.random()*projectColors.length);

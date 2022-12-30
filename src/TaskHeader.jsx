@@ -14,15 +14,14 @@ const TaskHeader = (props) =>{
   const [activeProject, setActiveProject] = props.hookActiveProject
 
 
-
-
-  const editButton= (taskProps)=>{
-    
+  const editButton = (taskProps)=>{
+    console.log("taskObject",taskProps)
     const task = document.getElementById("taskContainer"+taskProps.reactKey)
-    console.log(task)
-    return 
-    
+    const taskInfo = document.getElementById("taskInfo"+taskProps.reactKey)
+    const taskEditForm = document.getElementById("taskForm"+taskProps.reactKey)
 
+    taskInfo.classList.add("hidden")
+    taskEditForm.classList.remove("hidden")
   }
 
   
@@ -75,10 +74,12 @@ const TaskHeader = (props) =>{
   }
 
 return (
-  
-  <div className="backgroundTask " id = {"taskForm"+props.props.reactKey}>
+  <div className="backgroundTask " id = {"taskContainer"+props.props.reactKey}>
+
     <FormEditTask props = {props.props} hookActiveProject = {[activeProject, setActiveProject]} hookLibrary = {[library, setLibrary]}/>
-  <div className="taskContainer backgroundTask" id = {"taskContainer"+props.props.reactKey}>
+  
+  
+  <div className="taskContainer backgroundTask" id = {"taskInfo"+props.props.reactKey}>
     <div style = {{backgroundColor: props.props.projectColor}} className="projectColor"  id ={"projectColor"+props.props.reactKey} ></div>
     <div className="taskDetailBtn">
         <button onClick={()=>viewDetails(props.props.reactKey)} className="detailsBtn">
@@ -102,10 +103,8 @@ return (
       </div>
     </div>
     <div className="taskButtons">
-      <button onClick={()=>editButton(props.props)} className="finishedBtn">
-      Edit </button>
-          
-      <button onClick={()=>markComplete(props.props.reactKey)} className="finishedBtn">
+      <button id = {"editBtn"+ props.props.reactKey} onClick={()=>editButton(props.props)} className="finishedBtn">Edit</button>
+      <button id = {"checkTask"+ props.props.reactKey} onClick={()=>markComplete(props.props.reactKey)} className="finishedBtn">
         <i className="fa fa-check fa-2x iconColor" aria-hidden="true"></i>
       </button>
         </div>

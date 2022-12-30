@@ -12,79 +12,68 @@ const FormEditTask = (props)=>{
   const [library, setLibrary] = props.hookLibrary
   
 
-  const addItem = (values)=>{
-    toDoLibrary.push(TaskFactory.TaskFactory(values, activeProject))
-        console.log(values)
+  const editButton = (taskProps)=>{
+    console.log("taskObject",taskProps)
+    const task = document.getElementById("taskContainer"+taskProps.reactKey)
+    const taskInfo = document.getElementById("taskInfo"+taskProps.reactKey)
+    const taskEditForm = document.getElementById("taskForm"+taskProps.reactKey)
+
+    taskInfo.classList.add("hidden")
+    taskEditForm.classList.remove("hidden")
+  }
+
+
+  const editItem = (values)=>{
+    const indexFunction = (task)=> task.reactKey == props.props.reactKey;
+    const index = toDoLibrary.findIndex(indexFunction)
+    toDoLibrary[index].toDoName = values.toDoName
+    toDoLibrary[index].description = values.description
+    toDoLibrary[index].deadline = values.deadline
+    toDoLibrary[index].priority = values.priority
+    toDoLibrary[index].dueDate = new Date(values.deadline+"T23:59:59")
     setLibrary([...toDoLibrary])
-    console.log([...toDoLibrary]);
-      }
+
+  }
+
+  // const addItem = (values)=>{
+  //   toDoLibrary.push(TaskFactory.TaskFactory(values, activeProject))
+  //       console.log(values)
+  //   setLibrary([...toDoLibrary])
+  //   console.log([...toDoLibrary]);
+  //     }
 
 
   const hideForm=()=>{
-    const form = document.getElementById("formDiv")
-    form.classList.toggle("hidden")
+    const taskInfo = document.getElementById("taskInfo"+props.props.reactKey)
+    const taskEditForm = document.getElementById("taskForm"+props.props.reactKey)
+    taskEditForm.classList.add("hidden")
+    taskInfo.classList.remove("hidden")
 
-    const container = document.getElementById("taskFormDiv")
-    container.classList.toggle("taskMaxHeightSmall")
-    container.classList.toggle("taskMaxHeightLarge")
-
-    const button = document.getElementById("newTaskBtn")
-    button.classList.toggle("hidden")
-    button.classList.toggle("flex")
   }
 
-
-  const showForm = ()=> {
-    const form = document.getElementById("formDiv")
-    form.classList.remove("hidden")
-
-    const container = document.getElementById("taskFormDiv")
-    container.classList.toggle("taskMaxHeightSmall")
-    container.classList.toggle("taskMaxHeightLarge")
-
-    const button = document.getElementById("newTaskBtn")
-    button.classList.toggle("hidden")
-    button.classList.toggle("flex")
-    setTimeout(()=>{form.classList.remove("hidden")}, 1200)
-  }
-
-
-
-  const AddTaskBtn = () => {
-    return(
-      // <div id = "addTaskBtn" className="backgroundTask taskForm">
-        <button className="flex" id = "newTaskBtn" onClick={()=>showForm()}>+ New Task</button>
-          
-      // </div>
-    )
-  }
-  console.log("EditformProps", props.props)
   const formik = useFormik({
     initialValues: {
       toDoName: props.props.toDoName,
       description:props.props.description,
       deadline: props.props.deadline,
       priority: props.props.priority,
-      project:"Food"
     },
   onSubmit: values => {
-    
+
     hideForm()
     console.log(values)
 
 
-    addItem(values);
+    editItem(values);
     // alert(JSON.stringify(values, null, 2));
   },
 
 
 });
+
+
 return (
-  <div id = "taskFormDiv" className="taskFormContainer taskMaxHeightSmall backgroundForm">
-    <AddTaskBtn/>
-    
-    <div id = "formDiv" className="hidden">
-    
+  <div id = {"taskForm"+props.props.reactKey} className="hidden taskFormContainer backgroundForm">
     <form id = "taskFormID" className="taskForm addTaskBtn" onSubmit={formik.handleSubmit}>
       
       <div id = "formTaskName">
@@ -142,7 +131,6 @@ return (
       <button id = "taskFormBtn" className= "formButton" type="submit">Add Item</button>
 
     </form>
-    </div>
   </div>
 );
 }
