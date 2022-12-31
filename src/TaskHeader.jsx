@@ -34,6 +34,8 @@ const TaskHeader = (props) =>{
     })
     toDoLibrary.splice(index,1)
     setTimeout(()=>setLibrary([...toDoLibrary]), 1000)
+    localStorage.setItem("taskLibrary", JSON.stringify(toDoLibrary))
+    
   }
 
 
@@ -82,7 +84,7 @@ return (
   <div className="taskInfoContainer backgroundTask" id = {"taskInfo"+props.props.reactKey}>
     <div style = {{backgroundColor: props.props.projectColor}} className="projectColor"  id ={"projectColor"+props.props.reactKey} ></div>
     <div className="taskDetailBtn">
-        <button onClick={()=>viewDetails(props.props.reactKey)} className="detailsBtn">
+        <button onClick={()=>viewDetails(props.props.reactKey)} className="detailsBtn iconBtn">
           <i className="fa fa-list fa-2x iconColor" aria-hidden="true"></i>
         </button>
       </div>
@@ -99,10 +101,10 @@ return (
       </div>
     </div>
     <div className="taskButtons">
-      <button id = {"editBtn"+ props.props.reactKey} onClick={()=>editButton(props.props)} className="finishedBtn">
+      <button id = {"editBtn"+ props.props.reactKey} onClick={()=>editButton(props.props)} className="iconBtn finishedBtn">
         <i className="fa fa-pencil fa-lg iconColor" aria-hidden="true"></i>
       </button>
-      <button id = {"checkTask"+ props.props.reactKey} onClick={()=>markComplete(props.props.reactKey)} className="finishedBtn">
+      <button id = {"checkTask"+ props.props.reactKey} onClick={()=>markComplete(props.props.reactKey)} className="iconBtn finishedBtn">
       <i className="fa fa-check-square-o fa-2x iconColor" aria-hidden="true"></i>
 
       </button>

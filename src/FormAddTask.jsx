@@ -10,14 +10,12 @@ import TaskFactory from "./TaskFactory"
 const FormAddTask = (props)=>{
   const [activeProject, setActiveProject] = props.hookActiveProject
   const [library, setLibrary] = props.hookLibrary
-  
 
   const addItem = (values)=>{
-    toDoLibrary.push(TaskFactory.TaskFactory(values, activeProject))
-        console.log(values)
-    setLibrary([...toDoLibrary])
-    console.log([...toDoLibrary]);
-      }
+    toDoLibrary.push(TaskFactory.TaskFactory(values, activeProject));
+    localStorage.setItem("taskLibrary", JSON.stringify(toDoLibrary));
+    setLibrary([...toDoLibrary]);
+    }
 
 
   const hideForm=()=>{
@@ -37,7 +35,8 @@ const FormAddTask = (props)=>{
     const button = document.getElementById("newTaskBtn")
     button.classList.toggle("hidden")
     button.classList.toggle("flex")
-    setTimeout(()=>{form.classList.remove("hidden")}, 1200)
+    // setTimeout(()=>{form.classList.remove("hidden")}, 1200)
+    form.classList.remove("hidden")
   }
 
 
@@ -51,13 +50,13 @@ const FormAddTask = (props)=>{
         console.log("formAddTask Error - no formDiv. Should occur on first load")
     }finally {}
     return(
-        <button className="flex" id = "newTaskBtn" onClick={()=>showForm()}>+ New Task</button>
+        <button className="flex iconBtn" id = "newTaskBtn" onClick={()=>showForm()}>+ New Task</button>
     )
   }
 
   const formik = useFormik({
     initialValues: {
-      toDoName: props.toDoName,
+      toDoName: "",
       description:"",
       deadline: "",
       priority: "",
@@ -76,7 +75,6 @@ const FormAddTask = (props)=>{
 });
 return (
   <div id = "taskFormDiv" className="taskFormContainer backgroundForm">
-    
     <AddTaskBtn/>
     <div id = "formDiv" className="hidden">
     
@@ -134,8 +132,14 @@ return (
         </select>
       </div>
 
-      <button id = "taskFormBtn" className= "formButton" type="submit">Add Item</button>
+      <div id = "taskFormBtns">
+        <button id = "taskFormBtn" className= "formButton" type="submit">Add Item</button>
+        <button id = "taskFormCancelBtn" className= "formButton" type="button"
+        onClick={()=> hideForm()}>Cancel</button>
 
+
+      </div>
+      
     </form>
     </div>
     

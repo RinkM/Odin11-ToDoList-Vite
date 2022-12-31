@@ -8,12 +8,18 @@ import FilterProjectBtns from "./FilterProjectBtns";
 
 
 
-
+const loadLocalProjectLibrary = ()=>{console.log((projectLibrary[0]))
+  if (!localStorage.projectLibrary){
+    return projectLibrary[0]
+  } else {const projectLibrary = JSON.parse(localStorage.projectLibrary)
+    return projectLibrary
+  }
+}
 
 const DisplayProjects = (props)=>{
 
   const [activeProject, setActiveProject] = props.hookActiveProject
-  const [projects, setProjects] = useState(projectLibrary[0])
+  const [projects, setProjects] = useState(()=>loadLocalProjectLibrary())
   const [deadlineFilter, setDeadlineFilter] = props.hookDeadlineFilter
 
 const addProjectBtn = ()=>{

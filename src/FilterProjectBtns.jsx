@@ -63,13 +63,5 @@ const FilterProjectBtns = (props) =>{
 
 }
 
-
-// {projects.map((project)=>{
-//   return <ProjectFilters key = {"key"+project.reactKeyProject} project = {project}/>}
-// )
-// }
-
-
-
 export default FilterProjectBtns
 

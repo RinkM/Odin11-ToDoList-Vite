@@ -1,18 +1,29 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import FormAddTask from './FormAddTask'
 import DisplayList from './DisplayList'
 import toDoLibrary from './toDoLibrary'
 import DisplayProjects from './DisplayProjects'
 import projectLibrary from './projectLibrary'
 
+// if(!localStorage.getItem('bgcolor')) {
+//   populateStorage();
+// } else {
+//   setStyles();
+// }
 
 
+// JSON.parse(localStorage.projectLibrary)
+// JSON.parse(localStorage.taskLibrary)
 
-
+const loadLocalTaskLibrary = ()=>{console.log((toDoLibrary))
+  if (!localStorage.taskLibrary){
+    return toDoLibrary
+  } else {const taskLibrary = JSON.parse(localStorage.taskLibrary)
+    return taskLibrary
+  }
+}
 
 function App() {
-  const [library, setLibrary] = useState(toDoLibrary)
+  const [library, setLibrary] = useState(loadLocalTaskLibrary())
   const [activeProject, setActiveProject]= useState(projectLibrary[0][0])
   const [deadlineFilter, setDeadlineFilter] = useState(projectLibrary[1])
 

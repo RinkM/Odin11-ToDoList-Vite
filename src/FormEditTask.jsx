@@ -31,6 +31,8 @@ const FormEditTask = (props)=>{
     toDoLibrary[index].deadline = values.deadline
     toDoLibrary[index].priority = values.priority
     toDoLibrary[index].dueDate = new Date(values.deadline+"T23:59:59")
+
+    localStorage.setItem("taskLibrary", JSON.stringify(toDoLibrary))
     setLibrary([...toDoLibrary])
 
   }

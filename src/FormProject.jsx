@@ -17,9 +17,10 @@ const FormProject = (props)=>{
   }
 
   const addProject = (project)=>{
-    projects.push(project)
+    projects.push(project);
     // projectLibrary.push(project)
-    setProjects([...projects])
+    localStorage.setItem("projectLibrary", JSON.stringify(projects));
+    setProjects([...projects]);
     console.log(project)
   }
 

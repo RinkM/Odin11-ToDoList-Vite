@@ -48,17 +48,7 @@ const toDoLibrary = [
     reactKeyProject:"project2",
     projectColor: "#5AD2F4",
     dueDate: new Date("2023-04-20T23:59:59"),
-},
-
-//     {toDoName:"Eat Snack (Null)",
-//     completed:false,
-//     reactKey:3,
-//     description:null,
-//     deadline: null,
-//     priority: null,
-//     project:null,
-// },
-
+}
 ]
 
 export default toDoLibrary

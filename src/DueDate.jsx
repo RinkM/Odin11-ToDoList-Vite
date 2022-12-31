@@ -1,14 +1,17 @@
 
-import {formatDistanceToNow, differenceInMilliseconds} from "date-fns";
+import {parseISO, formatDistanceToNow, differenceInMilliseconds} from "date-fns";
 
 import { useState } from "react";
 
 const DueDate = (deadline) =>{
-
-  // const [state, setState]= useState()
   const today = new Date()
-  const taskDate = deadline.props
-  
+  let taskDate = deadline.props
+  console.log(taskDate)
+  if (typeof(taskDate) =="string"){
+    taskDate = parseISO(taskDate)
+  }
+  console.log("from DUEDATETETE!!!", typeof(taskDate))
+  console.log(taskDate)
   if (taskDate){
     const value = differenceInMilliseconds(taskDate, today)
     if (value<0) {
@@ -21,7 +24,7 @@ const DueDate = (deadline) =>{
       </div> )
     }
   } else {
-    return console.log("error: you didn't enter a date! Fool!")
+    return console.log("error: you didn't enter a date!")
   }
 
 }
