@@ -28,31 +28,15 @@ const FormAddTask = (props)=>{
   }
 
 
-  const showForm = ()=> {
+
+
+  const newHideForm = ()=>{
+    if (document.getElementById("formDiv")){
     const form = document.getElementById("formDiv")
-    form.classList.remove("hidden")
-
-    const button = document.getElementById("newTaskBtn")
-    button.classList.toggle("hidden")
-    button.classList.toggle("flex")
-    // setTimeout(()=>{form.classList.remove("hidden")}, 1200)
-    form.classList.remove("hidden")
+    form.classList.add("hidden")
   }
+}
 
-
-
-  const AddTaskBtn = () => {
-
-    try {
-      const form = document.getElementById("formDiv")
-      form.classList.add("hidden")
-    }catch {
-        console.log("formAddTask Error - no formDiv. Should occur on first load")
-    }finally {}
-    return(
-        <button className="flex iconBtn" id = "newTaskBtn" onClick={()=>showForm()}>+ New Task</button>
-    )
-  }
 
   const formik = useFormik({
     initialValues: {
@@ -62,24 +46,16 @@ const FormAddTask = (props)=>{
       priority: "",
     },
   onSubmit: values => {
-    
     hideForm()
     console.log(values)
-
-
     addItem(values);
-    // alert(JSON.stringify(values, null, 2));
   },
 
 
 });
 return (
-  <div id = "taskFormDiv" className="taskFormContainer backgroundForm">
-    <AddTaskBtn/>
-    <div id = "formDiv" className="hidden">
-    
+  <div id = "formDiv" className="hidden">
     <form id = "taskFormID" className="taskForm addTaskBtn" onSubmit={formik.handleSubmit}>
-      
       <div id = "formTaskName">
         <label id = "taskNameLabel" htmlFor="toDoName">Action Item: </label>
         <input
@@ -90,8 +66,6 @@ return (
           value={formik.values.toDoName}
         />
       </div>
-      
-
 
       <div id = "formTaskDescription">
         <label id = "descriptionLabel" htmlFor="description">Description:</label>
@@ -107,7 +81,6 @@ return (
       <div id = "formTaskDeadline">
         <label id = "deadlineLabel" htmlFor="deadline">Deadline:</label>
         <input
-
           id="deadline"
           name="deadline"
           type="date"
@@ -141,8 +114,6 @@ return (
       </div>
       
     </form>
-    </div>
-    
   </div>
 );
 }

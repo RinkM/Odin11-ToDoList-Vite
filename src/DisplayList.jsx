@@ -2,6 +2,7 @@ import { useState } from "react"
 import TaskHeader from "./TaskHeader"
 import FormAddTask from './FormAddTask'
 import differenceInCalendarDays from "date-fns/differenceInCalendarDays"
+import AddTaskBtn from "./AddTaskBtn"
 
 // ! SortItem and taskheader are redundent.  can condense down...
 
@@ -67,8 +68,13 @@ console.log("deadlineFilter", deadlineFilter)
       {library.map((item)=>
         <SortItem key ={item.reactKey+Date.now()} item = {item}/>
         )}
-      <FormAddTask hookActiveProject = {[activeProject, setActiveProject]} hookLibrary = {[library, setLibrary]}/>
+
+      <div id = "taskFormDiv" className="taskFormContainer backgroundForm">
+        <AddTaskBtn/>
+        <FormAddTask hookActiveProject = {[activeProject, setActiveProject]} hookLibrary = {[library, setLibrary]}/>
       </div>
+    </div>
+      
   )
 
 }
