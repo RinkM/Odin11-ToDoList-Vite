@@ -21,6 +21,7 @@ const DisplayProjects = (props)=>{
   const [activeProject, setActiveProject] = props.hookActiveProject
   const [projects, setProjects] = useState(()=>loadLocalProjectLibrary())
   const [deadlineFilter, setDeadlineFilter] = props.hookDeadlineFilter
+  const [library, setLibrary] = props.hookLibrary
 
 const addProjectBtn = ()=>{
   
@@ -39,6 +40,7 @@ return(
       hookProject = {[projects, setProjects]} 
       hookActiveProject = {[activeProject, setActiveProject]}/>
     <FilterProjectBtns 
+      hookLibrary = {[library, setLibrary]}
       hookDeadlineFilter = {[deadlineFilter, setDeadlineFilter]} 
       hookProject = {[projects, setProjects]} 
       hookActiveProject = {[activeProject, setActiveProject]}  />

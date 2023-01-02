@@ -10,7 +10,7 @@ import TaskFactory from "./TaskFactory"
 const FormProject = (props)=>{
   const [projects, setProjects] = props.hookProject
   
-  const addProjectBtn = ()=>{
+  const showAddProjectBtn = ()=>{
     const form = document.getElementById("formProject")
     form.classList.toggle("hidden")
     form.classList.toggle("flex")
@@ -18,7 +18,6 @@ const FormProject = (props)=>{
 
   const addProject = (project)=>{
     projects.push(project);
-    // projectLibrary.push(project)
     localStorage.setItem("projectLibrary", JSON.stringify(projects));
     setProjects([...projects]);
     console.log(project)
@@ -28,13 +27,14 @@ const FormProject = (props)=>{
     initialValues: {
       project: '',
     },
-  onSubmit: values => {
-    addProjectBtn()
+  onSubmit: (values, {resetForm}) => {
+    showAddProjectBtn()
     const project = TaskFactory.ProjectFactory(values, projects)
     console.log(values);
     addProject(project);
-      const form = document.getElementById("formProject")
-      form.classList.add("hidden")
+    const form = document.getElementById("formProject")
+    form.classList.add("hidden")
+    resetForm()
   },
 });
 return (

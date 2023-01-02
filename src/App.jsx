@@ -14,7 +14,7 @@ import projectLibrary from './projectLibrary'
 // JSON.parse(localStorage.projectLibrary)
 // JSON.parse(localStorage.taskLibrary)
 
-const loadLocalTaskLibrary = ()=>{console.log((toDoLibrary))
+const loadLocalTaskLibrary = ()=>{
   if (!localStorage.taskLibrary){
     return toDoLibrary
   } else {const taskLibrary = JSON.parse(localStorage.taskLibrary)
@@ -30,9 +30,15 @@ function App() {
   return (
     <div className="App backgroundApp">
       <div className='appHeader backgroundApp'><h1>Get Stuff Done!</h1></div>
-      <DisplayProjects  hookDeadlineFilter = {[deadlineFilter, setDeadlineFilter]} hookActiveProject = {[activeProject, setActiveProject]}/>
+      <DisplayProjects  
+        hookDeadlineFilter = {[deadlineFilter, setDeadlineFilter]} 
+        hookActiveProject = {[activeProject, setActiveProject]}  
+        hookLibrary = {[library, setLibrary]}/>
 
-      <DisplayList  hookDeadlineFilter = {[deadlineFilter, setDeadlineFilter]} hookActiveProject = {[activeProject, setActiveProject]} hookLibrary = {[library, setLibrary]}/>
+      <DisplayList  
+        hookDeadlineFilter = {[deadlineFilter, setDeadlineFilter]}
+        hookActiveProject = {[activeProject, setActiveProject]} 
+        hookLibrary = {[library, setLibrary]}/>
     </div>
   )
 }

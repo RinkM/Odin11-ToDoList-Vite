@@ -4,17 +4,20 @@ const projectLibrary = [[
   {projectName: "All",
   reactKeyProject:"project0",
   projectColor:"#3d518c",
-  time: "All"}
+  time: "All",
+  canDelete:false}
   ,
   {projectName: "Food",
   reactKeyProject:"project1",
   projectColor:"#315C2B",
-  time: "All"}
+  time: "All",
+  canDelete:true}
   ,
   {projectName: "Meals",
   reactKeyProject:"project2",
   projectColor: "#5AD2F4",
-  time:"All"}
+  time:"All",
+  canDelete:true}
   ],
   {filter:"Any Time", listText:"Any Time", reactID :0},
   ["All Projects", 7,30]

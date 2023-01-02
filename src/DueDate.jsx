@@ -6,12 +6,12 @@ import { useState } from "react";
 const DueDate = (deadline) =>{
   const today = new Date()
   let taskDate = deadline.props
-  console.log(taskDate)
+  // console.log(taskDate)
   if (typeof(taskDate) =="string"){
     taskDate = parseISO(taskDate)
   }
-  console.log("from DUEDATETETE!!!", typeof(taskDate))
-  console.log(taskDate)
+  // console.log("from DUEDATETETE!!!", typeof(taskDate))
+  // console.log(taskDate)
   if (taskDate){
     const value = differenceInMilliseconds(taskDate, today)
     if (value<0) {

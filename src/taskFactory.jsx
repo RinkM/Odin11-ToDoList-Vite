@@ -50,7 +50,8 @@ const ProjectFactory = (values, projectLibrary) => {
   const project = {
     projectName: values.project,
     reactKeyProject:creationDate,
-    projectColor:projectColors[index]
+    projectColor:projectColors[index],
+    canDelete:true
   }
   console.log("Factory - projectInfo:",project)
 

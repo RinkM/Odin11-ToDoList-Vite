@@ -1,5 +1,3 @@
-
-import { set } from "date-fns/esm"
 import { Formik } from "formik"
 import { useFormik } from "formik"
 import toDoLibrary from "./toDoLibrary"
@@ -27,17 +25,6 @@ const FormAddTask = (props)=>{
     button.classList.add("flex")
   }
 
-
-
-
-  const newHideForm = ()=>{
-    if (document.getElementById("formDiv")){
-    const form = document.getElementById("formDiv")
-    form.classList.add("hidden")
-  }
-}
-
-
   const formik = useFormik({
     initialValues: {
       toDoName: "",
@@ -45,10 +32,11 @@ const FormAddTask = (props)=>{
       deadline: "",
       priority: "",
     },
-  onSubmit: values => {
-    hideForm()
-    console.log(values)
+    
+  onSubmit: (values, {resetForm}) => {
+    hideForm();
     addItem(values);
+    resetForm();
   },
 
 
