@@ -3,7 +3,7 @@ import { set } from "date-fns/esm"
 import { Formik } from "formik"
 import { useFormik } from "formik"
 import toDoLibrary from "./toDoLibrary"
-import TaskFactory from "./TaskFactory"
+import TaskFactory from "../TaskFactory"
 
 
 
@@ -36,14 +36,6 @@ const FormEditTask = (props)=>{
     setLibrary([...toDoLibrary])
 
   }
-
-  // const addItem = (values)=>{
-  //   toDoLibrary.push(TaskFactory.TaskFactory(values, activeProject))
-  //       console.log(values)
-  //   setLibrary([...toDoLibrary])
-  //   console.log([...toDoLibrary]);
-  //     }
-
 
   const hideForm=()=>{
     const taskInfo = document.getElementById("taskInfo"+props.props.reactKey)

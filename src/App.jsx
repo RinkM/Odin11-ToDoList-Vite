@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import DisplayList from './DisplayList'
-import toDoLibrary from './toDoLibrary'
-import DisplayProjects from './DisplayProjects'
-import projectLibrary from './projectLibrary'
+import DisplayList from './taskComponents/DisplayList'
+import toDoLibrary from './taskComponents/toDoLibrary'
+import DisplayProjects from './projectComponents/DisplayProjects'
+import projectLibrary from './projectComponents/projectLibrary'
 
 // if(!localStorage.getItem('bgcolor')) {
 //   populateStorage();

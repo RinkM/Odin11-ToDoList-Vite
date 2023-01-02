@@ -11,20 +11,6 @@ const DisplayList = (props) =>{
   const [activeProject, setActiveProject] = props.hookActiveProject
   const [deadlineFilter, setDeadlineFilter] = props.hookDeadlineFilter
 
-
-
-
-// ! this is the + Add Task button function. <AddTaskBtn/>
-  // const AddTaskBtn = () => {
-  //   return(
-  //     // <div id = "addTaskBtn" className="backgroundTask taskForm">
-  //       <button className="flex" id = "newTaskBtn" onClick={()=>showForm()}>+ New Task</button>
-          
-  //     // </div>
-  //   )
-  // }
-
-
   const SortItem =  (props)=> {
     const daySort = () => {
       const today = Date.now();

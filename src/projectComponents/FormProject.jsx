@@ -2,8 +2,8 @@
 import { Formik } from "formik"
 import { useFormik } from "formik"
 import projectLibrary from "./projectLibrary"
-import ProjectFactory from "./TaskFactory"
-import TaskFactory from "./TaskFactory"
+import ProjectFactory from "../TaskFactory"
+import TaskFactory from "../TaskFactory"
 
 
 
