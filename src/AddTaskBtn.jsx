@@ -21,7 +21,10 @@
         console.log("formAddTask Error - no formDiv. Should occur on first load")
     }finally {}
     return(
-        <button className="flex iconBtn" id = "newTaskBtn" onClick={()=>showForm()}>+ New Task</button>
+        <button className="flex iconBtn" id = "newTaskBtn" onClick={()=>showForm()}>
+          <i className="fa fa-plus-circle " aria-hidden="true"></i>
+
+        </button>
     )
   }
 
