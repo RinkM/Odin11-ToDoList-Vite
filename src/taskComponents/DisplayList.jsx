@@ -49,9 +49,21 @@ const DisplayList = (props) =>{
     } else if (daySort() == true && projectSort() ==false){
     }
   }
+  const openProjects = () => {
+    const navLeft = document.getElementsByClassName("navLeft")[0]
+    navLeft.classList.add("flex")
+    navLeft.classList.remove("hidden")
+    
+  }
+  
+
 console.log("deadlineFilter", deadlineFilter)
   return (
     <div id = "toDoList">
+          <button id = "openBtn" className = "projectListItem" key="addProjectBtn"
+      onClick= {()=>openProjects()}>
+      View Project Menu
+    </button>
       <div id = "taskHeaderDiv" style ={{color: activeProject.projectColor}}>
         <h2>{activeProject.projectName} Projects Due: {deadlineFilter.listText}</h2>
       </div>

@@ -6,9 +6,8 @@ body {
 #root{
   width: 100%;
   margin: 0;
-  display: flex;
-  /* place-items: center; */
   min-width: 320px;
+  background-image: linear-gradient(0deg, #F2F2F8 , #FFFFFF);
   
   overflow-x: hidden;
   
@@ -28,12 +27,12 @@ body {
 
 
 .App{
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
   min-height: 100vh;
   display: grid;
   grid-template-columns: 200px 1fr;
-  grid-template-rows: 100px 1fr 1fr;
+  grid-template-rows: 100px 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
@@ -99,9 +98,9 @@ button:focus-visible {
 /* LEFT NAV STYLES */
 .navLeft{
   grid-area: 2 / 1 / 3 / 2;
-  display: flex;
   flex-direction: column;
   text-align: center;
+  transition: all .2s ease;
 }
 
 .dateSortBtn{
@@ -125,7 +124,9 @@ button:focus-visible {
 
 }
 
-
+#cancelBtn{
+  display: none;
+}
 
 
 
@@ -243,7 +244,7 @@ button:focus-visible {
   display: flex; 
   justify-content: flex-start;
   align-items: start;
-  font-size: .8rem;
+  font-size: .7rem;
 }
 
 .taskBody{
@@ -406,8 +407,6 @@ button:focus-visible {
 .backgroundApp{
   height:100%;
   color-scheme: light dark;
-  /* background-image: linear-gradient(0deg, #F2F2F8 , #FFFFFF) */
-  /* background-image: linear-gradient(0deg, #151528 , #07070D) */
 }
 
 input{
@@ -438,3 +437,113 @@ input{
 .taskMaxHeightLarge{max-height: 150px;
 
 }
+
+
+#openBtn{
+  
+  border-radius: 8px;
+  display: none;
+}
+
+#openBtn:hover {
+  border: 2pt solid #1e82da; 
+  border-radius: 8px;
+  }
+#openBtn:focus,
+#openBtn:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+
+
+@media only screen and (max-width:600px)  {
+  .App {
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 1fr;
+    max-width: 600px ;
+  }
+
+  #openBtn{
+    display:inline;
+  }
+  #cancelBtn{
+    display: inline;
+  }
+
+  .taskContainer{
+    max-width: 395px;
+  }
+  #taskFormDiv{
+    max-width: 395px;
+  }
+  .navLeft{
+    min-height: 250px;
+    width: 200px;
+    flex-direction: column;
+    text-align: center;
+    background-color: white;
+    border: 2pt solid #3D518C;
+    border-radius: 8px;
+    z-index: 1;
+    height: min-content;
+    padding-bottom: 10px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -80%);
+    transform: translate(-50%, -80%);
+
+  }
+
+  #toDoList{
+    grid-area: 2 / 1 / 3 / 3;
+    border-radius: 8px;
+    color:#ABD2fa;
+    padding: 1em;
+    margin-top: 1em;
+    margin-right: auto;
+    margin-bottom: 1em;
+    min-width: 450px;
+    max-width: 700px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  
+.taskInfoContainer {
+  display: grid;
+  grid-template-columns: 5px 45px 255px 80px;
+}
+
+#toDoName, #description {
+  width:150px
+}
+
+}
+
+
+
+@media only screen and (min-width:600px)  {
+ .App{
+  grid-template-columns: 200px 90%;
+ }
+ .navLeft{
+  display: flex;
+ }
+}
+
+@media only screen and (min-width:1000px)  {
+ 
+  #apps {
+    max-width: 1000px ;
+  }
+
+  .headers{
+    /* background-color: black; */
+  }
+
+}
+

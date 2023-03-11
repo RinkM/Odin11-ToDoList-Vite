@@ -16,6 +16,12 @@ const FormProject = (props)=>{
     form.classList.toggle("flex")
   }
 
+  const hideAddProjectBtn = ()=>{
+    const form = document.getElementById("formProject")
+    form.classList.toggle("hidden")
+    form.classList.toggle("flex")
+  }
+
   const addProject = (project)=>{
     projects.push(project);
     localStorage.setItem("projectLibrary", JSON.stringify(projects));
@@ -49,7 +55,8 @@ return (
     />
     <div className="buttonContainer">
       <button id = "projectFormBtn" className= "formButton"type="submit">Add</button>
-      <button type = "button" onClick={()=>addProjectBtn()}  className="formButton">Cancel</button>
+      <button type = "button" onClick={()=>hideAddProjectBtn()}  className="formButton">Cancel</button>
+
     </div>
   </form>
 

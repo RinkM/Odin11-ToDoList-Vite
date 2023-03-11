@@ -116,6 +116,7 @@ const delProjectBtn = (project)=>{
       });
   return(
     <div id = "projectListID" className="filterList projectList">
+      Categories
       {filterButtons}
       
   </div>)

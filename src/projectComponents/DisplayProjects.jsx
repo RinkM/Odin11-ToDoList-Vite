@@ -30,9 +30,24 @@ const addProjectBtn = ()=>{
   form.classList.toggle("flex")
 }
 
+function closeProjects () {
+  const navLeft = document.getElementsByClassName("navLeft")[0]
+  navLeft.classList.add("hidden")
+  navLeft.classList.remove("flex")
+}
+
+// function hideNav(){
+//   if (window.innerWidth < 601) {
+//     closeProjects()
+//   }
+  
+// }
+
 
 return(
-  <div className='navLeft'>
+  <div id = "navProject" className='navLeft'>
+    
+
     <div className="projectHeader"><h2>Projects</h2></div>
     
     <FilterTimeBtns 
@@ -53,6 +68,11 @@ return(
       hookDeadlineFilter = {[deadlineFilter, setDeadlineFilter]} 
       hookProject = {[projects, setProjects]}
       hookActiveProject = {[activeProject, setActiveProject]} />
+
+    <button id = "cancelBtn" className = "projectListItem" key="addProjectBtn"
+      onClick= {()=>closeProjects()}>
+      Cancel
+    </button>
   </div>
   
 )
