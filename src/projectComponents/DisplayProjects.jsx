@@ -31,48 +31,46 @@ const addProjectBtn = ()=>{
 }
 
 function closeProjects () {
-  const navLeft = document.getElementsByClassName("navLeft")[0]
-  navLeft.classList.add("hidden")
-  navLeft.classList.remove("flex")
+  const navLeft = document.getElementById("projectDisplay");
+  navLeft.classList.add("hiddenProject")
 }
 
-// function hideNav(){
-//   if (window.innerWidth < 601) {
-//     closeProjects()
-//   }
-  
-// }
+
+
 
 
 return(
-  <div id = "navProject" className='navLeft'>
+  <div id = "projectDisplay" class = "hiddenProject">
+    <div id = "navProject" className='navLeft'>
+    
     
 
-    <div className="projectHeader"><h2>Projects</h2></div>
-    
-    <FilterTimeBtns 
-      hookDeadlineFilter = {[deadlineFilter, setDeadlineFilter]} 
-      hookProject = {[projects, setProjects]} 
-      hookActiveProject = {[activeProject, setActiveProject]}/>
-    <FilterProjectBtns 
-      hookLibrary = {[library, setLibrary]}
-      hookDeadlineFilter = {[deadlineFilter, setDeadlineFilter]} 
-      hookProject = {[projects, setProjects]} 
-      hookActiveProject = {[activeProject, setActiveProject]}  />
+      <div className="projectHeader"><h2>Projects</h2></div>
+      
+      <FilterTimeBtns 
+        hookDeadlineFilter = {[deadlineFilter, setDeadlineFilter]} 
+        hookProject = {[projects, setProjects]} 
+        hookActiveProject = {[activeProject, setActiveProject]}/>
+      <FilterProjectBtns 
+        hookLibrary = {[library, setLibrary]}
+        hookDeadlineFilter = {[deadlineFilter, setDeadlineFilter]} 
+        hookProject = {[projects, setProjects]} 
+        hookActiveProject = {[activeProject, setActiveProject]}  />
 
-    <button id = "addProjectBtn" className = "projectListItem" key="addProjectBtn"
-      onClick= {()=>addProjectBtn()}>     
-      + New Project
-    </button>
-    <FormProject 
-      hookDeadlineFilter = {[deadlineFilter, setDeadlineFilter]} 
-      hookProject = {[projects, setProjects]}
-      hookActiveProject = {[activeProject, setActiveProject]} />
+      <button id = "addProjectBtn" className = "projectListItem" key="addProjectBtn"
+        onClick= {()=>addProjectBtn()}>     
+        + New Project
+      </button>
+      <FormProject 
+        hookDeadlineFilter = {[deadlineFilter, setDeadlineFilter]} 
+        hookProject = {[projects, setProjects]}
+        hookActiveProject = {[activeProject, setActiveProject]} />
 
-    <button id = "cancelBtn" className = "projectListItem" key="addProjectBtn"
-      onClick= {()=>closeProjects()}>
-      Cancel
-    </button>
+      <button id = "cancelBtn" className = "projectListItem" key="addProjectBtn"
+        onClick= {()=>closeProjects()}>
+        Cancel
+      </button>
+    </div>
   </div>
   
 )

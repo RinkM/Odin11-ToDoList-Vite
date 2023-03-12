@@ -50,10 +50,9 @@ const DisplayList = (props) =>{
     }
   }
   const openProjects = () => {
-    const navLeft = document.getElementsByClassName("navLeft")[0]
-    navLeft.classList.add("flex")
-    navLeft.classList.remove("hidden")
-    
+    const navLeft = document.getElementById("projectDisplay");
+    navLeft.classList.remove("hiddenProject");
+
   }
   
 
