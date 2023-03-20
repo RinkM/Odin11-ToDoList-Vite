@@ -22,7 +22,7 @@ const TaskFactory = (values, activeProject) => {
     taskObject.dueDate = new Date(values.deadline+"T23:59:59")}
 
     const finalTaskObject = Object.assign(taskObject, activeProject)
-    console.log(finalTaskObject)
+
     return finalTaskObject
     }
 
@@ -53,7 +53,7 @@ const ProjectFactory = (values, projectLibrary) => {
     projectColor:projectColors[index],
     canDelete:true
   }
-  console.log("Factory - projectInfo:",project)
+  // console.log("Factory - projectInfo:",project)
 
 
   

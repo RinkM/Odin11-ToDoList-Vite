@@ -8,7 +8,8 @@ import FilterProjectBtns from "./FilterProjectBtns";
 
 
 
-const loadLocalProjectLibrary = ()=>{console.log((projectLibrary[0]))
+const loadLocalProjectLibrary = ()=>{
+  // console.log((projectLibrary[0]))
   if (!localStorage.projectLibrary){
     return projectLibrary[0]
   } else {const projectLibrary = JSON.parse(localStorage.projectLibrary)

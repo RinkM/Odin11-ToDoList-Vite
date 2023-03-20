@@ -35,8 +35,8 @@ const delProjectBtn = (project)=>{
 
 
   const deleteProject = (project)=>{
-  console.log(project)
-  console.log(library)
+  // console.log(project)
+  // console.log(library)
   
   // expected output: Array ["exuberant", "destruction", "present"]
   // error if there are tasks in there. 
@@ -44,7 +44,7 @@ const delProjectBtn = (project)=>{
 
   // searches for the tasks 
   const result = library.filter(task => task.projectName == project.projectName);
-  console.log(result);
+  // console.log(result);
 
   // removes the tasks with that project. 
   if (result.length != 0){
@@ -71,7 +71,7 @@ const delProjectBtn = (project)=>{
 }
 
   const projectClick = (project)=>{
-    console.log("project project",project)
+    // console.log("project project",project)
     setActiveProject(project)
     highlightProjectBtn(project)
   };

@@ -31,11 +31,11 @@ const FilterTimeBtns = (props) =>{
   const updateTimeFilter = (DaysListItem)=>{
     setDeadlineFilter(DaysListItem)
     highlightProjectBtn(DaysListItem)
-    console.log("DaysListItem", DaysListItem)
+    // console.log("DaysListItem", DaysListItem)
   }
 
   const highlightProjectBtn = (filter)=> {
-    console.log(filter)
+    // console.log(filter)
     const activeFilter = document.getElementById("timeFilterBtn"+filter.reactID)
     const projectList = [...document.getElementById("dateFilterContainer").children]
     projectList.forEach(button => button.classList.remove("activeProject"))

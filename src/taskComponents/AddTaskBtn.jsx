@@ -18,7 +18,7 @@
       const form = document.getElementById("formDiv")
       form.classList.add("hidden")
     }catch {
-        console.log("formAddTask Error - no formDiv. Should occur on first load")
+        console.log("formAddTask Error - no formDiv. This should occur on first load")
     }finally {}
     return(
         <button className="flex iconBtn" id = "newTaskBtn" onClick={()=>showForm()}>

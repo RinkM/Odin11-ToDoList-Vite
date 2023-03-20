@@ -26,7 +26,7 @@ const FormProject = (props)=>{
     projects.push(project);
     localStorage.setItem("projectLibrary", JSON.stringify(projects));
     setProjects([...projects]);
-    console.log(project)
+    // console.log(project)
   }
 
   const formik = useFormik({
@@ -36,7 +36,7 @@ const FormProject = (props)=>{
   onSubmit: (values, {resetForm}) => {
     showAddProjectBtn()
     const project = TaskFactory.ProjectFactory(values, projects)
-    console.log(values);
+    // console.log(values);
     addProject(project);
     const form = document.getElementById("formProject")
     form.classList.add("hidden")

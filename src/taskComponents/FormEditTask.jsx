@@ -13,7 +13,7 @@ const FormEditTask = (props)=>{
   
 
   const editButton = (taskProps)=>{
-    console.log("taskObject",taskProps)
+    // console.log("taskObject",taskProps)
     const task = document.getElementById("taskContainer"+taskProps.reactKey)
     const taskInfo = document.getElementById("taskInfo"+taskProps.reactKey)
     const taskEditForm = document.getElementById("taskForm"+taskProps.reactKey)
@@ -55,7 +55,7 @@ const FormEditTask = (props)=>{
   onSubmit: values => {
 
     hideForm()
-    console.log(values)
+    // console.log(values)
 
 
     editItem(values);

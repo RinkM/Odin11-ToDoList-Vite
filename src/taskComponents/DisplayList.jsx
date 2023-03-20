@@ -15,8 +15,8 @@ const DisplayList = (props) =>{
     const daySort = () => {
       const today = Date.now();
       const days = differenceInCalendarDays(props.item.dueDate, today);
-      console.log("daystildue", days)
-      console.log("activeprojcect time", deadlineFilter)
+      // console.log("daystildue", days)
+      // console.log("activeprojcect time", deadlineFilter)
       if (deadlineFilter.filter == "Any Time"){
         return true
       } else if (days >= deadlineFilter.filter) {

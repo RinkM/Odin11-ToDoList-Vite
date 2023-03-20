@@ -15,7 +15,7 @@ const TaskHeader = (props) =>{
 
 
   const editButton = (taskProps)=>{
-    console.log("taskObject",taskProps)
+    // console.log("taskObject",taskProps)
     const task = document.getElementById("taskContainer"+taskProps.reactKey)
     const taskInfo = document.getElementById("taskInfo"+taskProps.reactKey)
     const taskEditForm = document.getElementById("taskForm"+taskProps.reactKey)
